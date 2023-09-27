@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+}
+
+body {
+    background-color: black;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    border-radius: 20px;
+    width: 400px;
+    background-color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    height: 180px;
+    width: 350px;
+    padding: 20px;
+}
+
+#eggIcon {
+    width: 200px;
+}
+
+#yolk {
+    height: 130px;
+    width: 130px;
+    background-color: yellow;
+    border-radius: 70px;
+    position: relative;
+    left: 35px;
+    bottom: 150px;
+}
+
+img {
+    height: 260px;
+    width: 200px;
+}
+
+h1 {
+    font-family: Comfortaa;
+}
+
+button {
+    width: 200px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #FCE4B1;
+    font-size: 16px;
+    font-family: Comfortaa;
+}

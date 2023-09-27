@@ -1,4 +1,6 @@
 "use strict";
+let main = document.querySelector("main");
+
 document.addEventListener("DOMContentLoaded", function () {
   const looseCookedButton = document.getElementById("loose_cooked");
   const hardCookedButton = document.getElementById("hard_cooked");
@@ -22,9 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Calculate and display the remaining minutes and seconds
         const minutes = Math.floor(secondsRemaining / 60);
         const seconds = secondsRemaining % 60;
-        timerDisplay.textContent = `${minutes}:${
-          seconds < 10 ? "0" : ""
-        }${seconds}`;
+        timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""
+          }${seconds}`;
 
         // Decrement the remaining seconds
         secondsRemaining--;
@@ -48,3 +49,26 @@ document.addEventListener("DOMContentLoaded", function () {
     startTimer(9);
   });
 });
+
+function renderStartPage(params) {
+  let wrapper = document.querySelector("#wrapper");
+  wrapper.innerHTML = `
+    <header>
+      <img id="title"> 
+    </header>
+    <div id="eggIcon">
+      <img id="eggPic"> 
+      <div id="yolk"></div>
+    </div>
+    <button onclick="RenderBoilPage()">Lets boil some eggs!</button>
+  `;
+
+  wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+  wrapper.querySelector("#title").src = "/images/title.png";
+}
+
+renderStartPage()
+
+function RenderBoilPage(params) {
+  console.log("hej");
+}
