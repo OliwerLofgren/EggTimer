@@ -1,5 +1,6 @@
 "use strict";
 let main = document.querySelector("main");
+let wrapper = document.querySelector("#wrapper");
 
 document.addEventListener("DOMContentLoaded", function () {
   const looseCookedButton = document.getElementById("loose_cooked");
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function renderStartPage(params) {
-  let wrapper = document.querySelector("#wrapper");
+
   wrapper.innerHTML = `
     <header>
       <img id="title"> 
@@ -69,6 +70,3 @@ function renderStartPage(params) {
 
 renderStartPage()
 
-function RenderBoilPage(params) {
-  console.log("hej");
-}

@@ -1,0 +1,38 @@
+.option {
+    background-color: #FCE4B1;
+    font-family: Comfortaa;
+    grid-row: 2;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px; */
+    border-radius: 20px;
+    border: 1px solid #FCE4B1;
+}
+
+.option:hover {
+    border: 1px solid #6b4d38;
+}
+
+.optionDiv {
+    font-family: Comfortaa;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr, 2fr;
+    gap: 10px;
+}
+
+.optionDiv>p {
+    grid-column: 1/3;
+}
+
+#startTimer {
+    margin-top: 20px;
+    height: 70px;
+    padding: 10px;
+}
+
+.chosen {
+    background-color: #b6a379;
+}

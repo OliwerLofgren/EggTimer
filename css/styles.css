@@ -15,7 +15,8 @@ body {
     height: 100vh;
     border-radius: 20px;
     width: 400px;
-    background-color: white;
+    background-color: #FDF5EC;
+    overflow: scroll;
 }
 
 main {
@@ -32,6 +33,7 @@ main {
 
 #eggIcon {
     width: 200px;
+    height: 300px;
 }
 
 #yolk {
@@ -42,6 +44,7 @@ main {
     position: relative;
     left: 35px;
     bottom: 150px;
+    border: 2px solid #b69244;
 }
 
 img {
