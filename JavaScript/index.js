@@ -33,16 +33,22 @@ function RenderBoilPage() {
 
         </div>
     <button id="startTimer"> Lets start boil some eggs! </button>
+
+    <div id="popUp" class="hidden">
+        <div id="popUpBackground"></div>
+        <div id="popUpWindow">
+            <p id="prompt"></p>
+        </div>
+    </div>
   `;
 
 
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
 
-    let chosenOpt = [];
+    let chosenOpt = {};
 
     let option = wrapper.querySelectorAll(".optionDiv");
-    // console.log(option);
 
     option.forEach(opt => {
         opt.addEventListener("click", (event) => {
@@ -51,29 +57,54 @@ function RenderBoilPage() {
             if (event.target.classList != "option chosen") {
                 console.log("borttaget");
                 console.log(chosenOpt);
-                for (let i = 0; i < chosenOpt.length; i++) {
-                    chosenOpt.slice([i])
-                    console.log(chosenOpt);
-                }
+
+                // for (let i = 0; i < chosenOpt.length; i++) {
+                //     if (chosenOpt[i] === event.target.textContent) {
+                //         delete chosenOpt.splice(i, 1); // Remove the element at index i
+                //         console.log(chosenOpt);
+                //     }
+                // }
+
             }
             let parent = event.target.parentElement;
             let childs = parent.querySelectorAll("div");
 
             childs.forEach(child => {
                 if (child.classList == "option chosen") {
-                    chosenOpt.push(child.textContent);
+
+                    if (child.textContent === "Soft" || child.textContent === "Medium" || child.textContent === "Hard") {
+                        chosenOpt.liking = child.textContent
+                    }
+
+                    if (child.textContent === "S" || child.textContent === "M" || child.textContent === "L") {
+                        chosenOpt.size = child.textContent
+                    }
+
+                    if (child.textContent === "Hot" || child.textContent === "Cold") {
+                        chosenOpt.temp = child.textContent
+                    }
                 }
             })
         })
     })
 
     wrapper.querySelector("#startTimer").addEventListener("click", () => {
-        if (chosenOpt.length === 3) {
-            // console.log(chosenOpt);
+
+        console.log(chosenOpt);
+        if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
+
+            console.log(document.querySelectorAll(".chosen"));
+            let chosen = document.querySelectorAll(".chosen");
+            if (chosen.length !== 3) {
+                console.log("Too many or too little");
+                console.log(chosenOpt);
+                popUp();
+            }
             StartTimer(chosenOpt)
         } else {
             console.log("Too many or too little");
             console.log(chosenOpt);
+            popUp();
         }
     })
 }
