@@ -41,12 +41,21 @@ function RenderBoilPage() {
 
     let chosenOpt = [];
 
-    let option = wrapper.querySelectorAll(".option");
+    let option = wrapper.querySelectorAll(".optionDiv");
+    // console.log(option);
 
     option.forEach(opt => {
         opt.addEventListener("click", (event) => {
 
             event.target.classList.toggle("chosen");
+            if (event.target.classList != "option chosen") {
+                console.log("borttaget");
+                console.log(chosenOpt);
+                for (let i = 0; i < chosenOpt.length; i++) {
+                    chosenOpt.slice([i])
+                    console.log(chosenOpt);
+                }
+            }
             let parent = event.target.parentElement;
             let childs = parent.querySelectorAll("div");
 
@@ -59,10 +68,16 @@ function RenderBoilPage() {
     })
 
     wrapper.querySelector("#startTimer").addEventListener("click", () => {
-        StartTimer(chosenOpt)
+        if (chosenOpt.length === 3) {
+            // console.log(chosenOpt);
+            StartTimer(chosenOpt)
+        } else {
+            console.log("Too many or too little");
+            console.log(chosenOpt);
+        }
     })
 }
 
 function StartTimer(opt) {
-    console.log(opt);
+    console.log("dax att koka");
 }
