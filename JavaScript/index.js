@@ -161,7 +161,6 @@ function timer_function(option) {
     function stopTimer() {
         clearTimeout(countdown);
         wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-        document.getElementById("funFact").textContent = "";
 
         popUp("Timer has stopped");
         let opt = false;
