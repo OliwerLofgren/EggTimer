@@ -81,18 +81,14 @@ function StartTimer(opt) {
   divDom = `${opt.liking}_${opt.size}`;
 
   wrapper.innerHTML += `
-  <div id="timer" >
-  <p id="funFact"></p>
-  <p id="feedback"></p>
-  <div id="clock"> 00:00 </div>
-  <button id="stopButton">Stop</button>
-  </div>
-  `;
+        <div id="timer">
+            <p id="funFact"></p>
+            <p id="feedback"></p>
+            <div id="clock"> 00:00 </div>
+            <button id="stopButton">Stop</button>
+        </div>
+    `;
   wrapper.querySelector("#eggIcon").classList.add("wiggle");
-
-  console.log(divDom);
-
-  console.log(opt);
 
   wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
   wrapper.querySelector("#title").src = "/images/title.png";
@@ -101,10 +97,15 @@ function StartTimer(opt) {
   timer_function(divDom);
 
   const funFact = wrapper.querySelector("#funFact");
+  displayNextFact(funFact, true);
+}
 
-  let i = 0;
+const funFact = document.querySelector("#funFact");
 
-  function displayNextFact() {
+let i = 0;
+
+function displayNextFact(funFact, opt) {
+  if (opt == true) {
     if (i < eggInfo.length) {
       // Apply a fade-out effect
       funFact.style.opacity = 0;
@@ -127,8 +128,6 @@ function StartTimer(opt) {
       console.log("gör om");
     }
   }
-
-  displayNextFact();
 }
 
 function timer_function(option) {
@@ -162,8 +161,9 @@ function timer_function(option) {
   function stopTimer() {
     clearTimeout(countdown);
     wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-
     popUp("Timer has stopped");
+    let opt = false;
+    displayNextFact(opt);
   }
 
   // Add click event listener to the "Stop" button
