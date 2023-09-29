@@ -88,6 +88,7 @@ function StartTimer(opt) {
   <button id="stopButton">Stop</button>
   </div>
   `;
+    wrapper.querySelector("#eggIcon").classList.add("wiggle");
 
     console.log(divDom);
 
@@ -124,12 +125,10 @@ function StartTimer(opt) {
             i = 0;
             displayNextFact();
             console.log("gör om");
-
         }
     }
 
     displayNextFact();
-
 
     displayNextFact();
 }
@@ -160,17 +159,11 @@ function timer_function(option) {
     clearTimeout(countdown);
     const duration = timerDurations[option];
 
-    // if (duration === undefined) {
-    //     // Handle invalid options
-    //     timerDisplay.textContent = "Invalid option!";
-    //     return;
-    // }
-    // Function to stop the timer and clear the timeout
+    document.getElementById("clock").textContent = "Timer stopped";
     function stopTimer() {
         clearTimeout(countdown);
-        // Optionally, you can update the display or perform any other actions when the timer is stopped.
-        // For example, you can display a message.
-        // document.getElementById("feedback").textContent = "Timer stopped";
+        wrapper.querySelector("#eggIcon").classList.remove("wiggle");
+
         popUp("Timer has stopped");
     }
 
@@ -193,7 +186,6 @@ function timer_function(option) {
             timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""
                 }${seconds}`;
 
-
             // Decrement the remaining seconds
             secondsRemaining--;
 
@@ -205,4 +197,3 @@ function timer_function(option) {
     // Initial call to updateTimer to set the initial display and start the timer
     updateTimer();
 }
-
