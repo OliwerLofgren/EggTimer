@@ -1,7 +1,6 @@
 function RenderBoilPage() {
-
-    basicLayout();
-    wrapper.innerHTML += `
+  basicLayout();
+  wrapper.innerHTML += `
     <div>
         <div class="optionDiv">
             <p> How would you like your egg? </p>
@@ -27,63 +26,68 @@ function RenderBoilPage() {
     <button id="startTimer"> Lets start boil some eggs! </button>
   `;
 
-    wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
+  wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+  wrapper.querySelector("#title").src = "/images/title.png";
 
-    let chosenOpt = {};
+  let chosenOpt = {};
 
-    let option = wrapper.querySelectorAll(".optionDiv");
+  let option = wrapper.querySelectorAll(".optionDiv");
 
-    option.forEach(opt => {
-        opt.addEventListener("click", (event) => {
+  option.forEach((opt) => {
+    opt.addEventListener("click", (event) => {
+      event.target.classList.toggle("chosen");
 
-            event.target.classList.toggle("chosen");
+      let parent = event.target.parentElement;
+      let childs = parent.querySelectorAll("div");
 
-            let parent = event.target.parentElement;
-            let childs = parent.querySelectorAll("div");
+      childs.forEach((child) => {
+        if (child.classList == "option chosen") {
+          if (
+            child.textContent === "Soft" ||
+            child.textContent === "Medium" ||
+            child.textContent === "Hard"
+          ) {
+            chosenOpt.liking = child.textContent;
+          }
 
-            childs.forEach(child => {
-                if (child.classList == "option chosen") {
+          if (
+            child.textContent === "S" ||
+            child.textContent === "M" ||
+            child.textContent === "L"
+          ) {
+            chosenOpt.size = child.textContent;
+          }
 
-                    if (child.textContent === "Soft" || child.textContent === "Medium" || child.textContent === "Hard") {
-                        chosenOpt.liking = child.textContent
-                    }
-
-                    if (child.textContent === "S" || child.textContent === "M" || child.textContent === "L") {
-                        chosenOpt.size = child.textContent
-                    }
-
-                    if (child.textContent === "Hot" || child.textContent === "Cold") {
-                        chosenOpt.temp = child.textContent
-                    }
-                }
-            })
-        })
-    })
-
-    wrapper.querySelector("#startTimer").addEventListener("click", () => {
-        if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
-
-            console.log(document.querySelectorAll(".chosen"));
-            let chosen = document.querySelectorAll(".chosen");
-            if (chosen.length !== 3) {
-                console.log("Too many or too little");
-                console.log(chosenOpt);
-                popUp();
-            }
-            StartTimer(chosenOpt)
-        } else {
-            console.log("Too many or too little");
-            console.log(chosenOpt);
-            popUp();
+          if (child.textContent === "Hot" || child.textContent === "Cold") {
+            chosenOpt.temp = child.textContent;
+          }
         }
-    })
+      });
+    });
+  });
+
+  wrapper.querySelector("#startTimer").addEventListener("click", () => {
+    if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
+      console.log(document.querySelectorAll(".chosen"));
+      let chosen = document.querySelectorAll(".chosen");
+      if (chosen.length !== 3) {
+        console.log("Too many or too little");
+        console.log(chosenOpt);
+        popUp();
+      }
+      StartTimer(chosenOpt);
+    } else {
+      console.log("Too many or too little");
+      console.log(chosenOpt);
+      popUp();
+    }
+  });
 }
 
 function StartTimer(opt) {
-    basicLayout();
+  basicLayout();
 
-    wrapper.innerHTML += `
+  wrapper.innerHTML += `
     <div id="timer" >
             <div> Time left </div>
             <div id="clock"> 00:00 </div>
@@ -91,42 +95,40 @@ function StartTimer(opt) {
     </div>
   `;
 
-
-    wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
-    startTimer();
-
+  wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+  wrapper.querySelector("#title").src = "/images/title.png";
+  startTimer();
 }
 
-let seconds = 0;
-let minutes = 0;
-let timer;
+// let seconds = 0;
+// let minutes = 0;
+// let timer;
 
-function startTimer() {
-    timer = setInterval(incrementTimer, 1000);
-}
+// function startTimer() {
+//     timer = setInterval(incrementTimer, 1000);
+// }
 
-function stopTimer() {
-    clearInterval(timer);
-}
+// function stopTimer() {
+//     clearInterval(timer);
+// }
 
-function incrementTimer() {
+// function incrementTimer() {
 
-    let userTime = document.querySelector("#clock").value;
+//     let userTime = document.querySelector("#clock").value;
 
-    seconds++;
-    if (seconds == userTime) {
-        console.log("done");
-        clearInterval(timer);
-        resetTimer()
-    }
-    if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-    }
+//     seconds++;
+//     if (seconds == userTime) {
+//         console.log("done");
+//         clearInterval(timer);
+//         resetTimer()
+//     }
+//     if (seconds === 60) {
+//         seconds = 0;
+//         minutes++;
+//     }
 
-    document.getElementById("clock").innerText =
-        ("0" + minutes).slice(-2) +
-        ":" +
-        ("0" + seconds).slice(-2);
-}
+//     document.getElementById("clock").innerText =
+//         ("0" + minutes).slice(-2) +
+//         ":" +
+//         ("0" + seconds).slice(-2);
+// }
