@@ -3,6 +3,11 @@
     src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
 }
 
+@font-face {
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
 body {
     background-color: black;
     margin: 0;
@@ -63,4 +68,9 @@ button {
     background-color: #FCE4B1;
     font-size: 16px;
     font-family: Comfortaa;
+}
+
+#clock {
+    font-size: 70px;
+    font-family: Montserrat;
 }

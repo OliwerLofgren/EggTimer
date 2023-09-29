@@ -54,18 +54,7 @@ function RenderBoilPage() {
         opt.addEventListener("click", (event) => {
 
             event.target.classList.toggle("chosen");
-            if (event.target.classList != "option chosen") {
-                console.log("borttaget");
-                console.log(chosenOpt);
 
-                // for (let i = 0; i < chosenOpt.length; i++) {
-                //     if (chosenOpt[i] === event.target.textContent) {
-                //         delete chosenOpt.splice(i, 1); // Remove the element at index i
-                //         console.log(chosenOpt);
-                //     }
-                // }
-
-            }
             let parent = event.target.parentElement;
             let childs = parent.querySelectorAll("div");
 
@@ -111,4 +100,65 @@ function RenderBoilPage() {
 
 function StartTimer(opt) {
     console.log("dax att koka");
+    wrapper.innerHTML = `
+    <header>
+      <img id="title"> 
+    </header>
+    <div id="eggIcon">
+      <img id="eggPic"> 
+      <div id="yolk"></div>
+    </div>
+
+  <div id="timer" >
+        <div> Time left </div>
+        <div id="clock"> 00:00 </div>
+        <button onclick="stopTimer()">Stop</button>
+  </div>
+
+    <div id="popUp" class="hidden">
+        <div id="popUpBackground"></div>
+        <div id="popUpWindow">
+            <p id="prompt"></p>
+        </div>
+    </div>
+  `;
+
+
+    wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+    wrapper.querySelector("#title").src = "/images/title.png";
+    startTimer();
+
+}
+
+let seconds = 0;
+let minutes = 0;
+let timer;
+
+function startTimer() {
+    timer = setInterval(incrementTimer, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function incrementTimer() {
+
+    let userTime = document.querySelector("#clock").value;
+
+    seconds++;
+    if (seconds == userTime) {
+        console.log("done");
+        clearInterval(timer);
+        resetTimer()
+    }
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    document.getElementById("clock").innerText =
+        ("0" + minutes).slice(-2) +
+        ":" +
+        ("0" + seconds).slice(-2);
 }
