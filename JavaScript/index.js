@@ -82,7 +82,6 @@ function StartTimer(opt) {
 
   wrapper.innerHTML += `
   <div id="timer" >
-  <div> Time left </div>
   <div id="clock"> 00:00 </div>
   <button id="stopButton">Stop</button>
   </div>
