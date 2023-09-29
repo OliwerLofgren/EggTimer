@@ -1,25 +1,10 @@
-<<<<<<< Updated upstream
 function popUp(content) {
-    document.querySelector("#popUpWindow").innerHTML = `
-    <p id="prompt"></p>
-`;
-
-    document.querySelector("#popUp").classList.remove("hidden");
-    document.querySelector("#prompt").textContent = content;
-    let button = document.createElement("button");
-    button.textContent = "OK";
-    button.classList.add("OK");
-    document.querySelector("#popUpWindow").append(button);
-    document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-=======
-function popUp() {
   document.querySelector("#popUpWindow").innerHTML = `
     <p id="prompt"></p>
 `;
 
   document.querySelector("#popUp").classList.remove("hidden");
-  document.querySelector("#prompt").textContent =
-    "You can only chose one of each option!";
+  document.querySelector("#prompt").textContent = content;
   let button = document.createElement("button");
   button.textContent = "OK";
   button.classList.add("OK");
@@ -27,7 +12,6 @@ function popUp() {
   document.querySelector(".OK").addEventListener("click", (e) => {
     document.querySelector("#popUp").classList.add("hidden");
   });
->>>>>>> Stashed changes
 }
 
 function basicLayout() {
@@ -36,9 +20,6 @@ function basicLayout() {
         <img id="title"> 
         </header>
         <div id="eggIcon">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
             <img id="eggPic"> 
             <div id="yolk"></div>
         </div>
