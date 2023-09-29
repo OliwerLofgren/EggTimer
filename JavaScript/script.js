@@ -9,17 +9,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define the timer durations for different options
   const timerDurations = {
-    soft_small_hot: 6 * 60, // 6 minutes
-    soft_medium_hot: 6 * 60 + 43, // 6 minutes 43 seconds
-    soft_large_hot: 7 * 60 + 28, // 7 minutes 28 seconds
+    Soft_Small: 6 * 60, // 6 minutes
+    Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
+    Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
-    medium_small_hot: 6 * 60 + 49, // 6 minutes 49 seconds
-    medium_medium_hot: 7 * 60 + 43, // 7 minutes 43 seconds
-    medium_large_hot: 8 * 60 + 35, // 8 minutes 35 seconds
+    Half_Small: 6 * 60 + 49, // 6 minutes 49 seconds
+    Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
+    Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    hard_small_hot: 8 * 60 + 45, // 8 minutes 45 seconds
-    hard_medium_hot: 10 * 60, // 10 minutes
-    hard_large_hot: 11 * 60, // 11 minutes
+    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Medium: 10 * 60, // 10 minutes
+    Hard_Large: 11 * 60, // 11 minutes
   };
 
   function startTimer(option) {
@@ -62,21 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial call to updateTimer to set the initial display and start the timer
     updateTimer();
   }
-
-  // Example: Add event listeners for different options/buttons
-  document
-    .getElementById("loose_cooked")
-    .addEventListener("click", function () {
-      // Start the timer for the "Soft, Large, Hot water" option
-      startTimer("soft_small_hot");
-    });
-
-  document.getElementById("hard_cooked").addEventListener("click", function () {
-    // Start the timer for the "Soft, Large, Cold water" option
-    startTimer("hard_large_hot");
-  });
-
-  // Add more event listeners for other options/buttons as needed
+  // document.getElementById("startTimer").addEventListener("click", function () {
+  //   startTimer("id");
+  // });
 });
 
 function renderStartPage(params) {
