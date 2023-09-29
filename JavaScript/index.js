@@ -160,11 +160,11 @@ function timer_function(option) {
     clearTimeout(countdown);
     const duration = timerDurations[option];
 
-    if (duration === undefined) {
-        // Handle invalid options
-        timerDisplay.textContent = "Invalid option!";
-        return;
-    }
+    // if (duration === undefined) {
+    //     // Handle invalid options
+    //     timerDisplay.textContent = "Invalid option!";
+    //     return;
+    // }
     // Function to stop the timer and clear the timeout
     function stopTimer() {
         clearTimeout(countdown);
