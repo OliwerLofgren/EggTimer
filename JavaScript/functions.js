@@ -11,3 +11,22 @@ function popUp() {
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
+
+function basicLayout() {
+    document.querySelector("#wrapper").innerHTML = `
+        <header>
+        <img id="title"> 
+        </header>
+        <div id="eggIcon">
+        <img id="eggPic"> 
+        <div id="yolk"></div>
+        </div>
+
+        <div id="popUp" class="hidden">
+        <div id="popUpBackground"></div>
+        <div id="popUpWindow">
+            <p id="prompt"></p>
+        </div>
+    </div>
+    `;
+}

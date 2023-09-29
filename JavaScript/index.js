@@ -1,14 +1,7 @@
 function RenderBoilPage() {
-    console.log("hej");
 
-    wrapper.innerHTML = `
-    <header>
-      <img id="title"> 
-    </header>
-    <div id="eggIcon">
-      <img id="eggPic"> 
-      <div id="yolk"></div>
-    </div>
+    basicLayout();
+    wrapper.innerHTML += `
 
     <div>
         <div class="optionDiv">
@@ -33,15 +26,7 @@ function RenderBoilPage() {
 
         </div>
     <button id="startTimer"> Lets start boil some eggs! </button>
-
-    <div id="popUp" class="hidden">
-        <div id="popUpBackground"></div>
-        <div id="popUpWindow">
-            <p id="prompt"></p>
-        </div>
-    </div>
   `;
-
 
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
@@ -78,8 +63,6 @@ function RenderBoilPage() {
     })
 
     wrapper.querySelector("#startTimer").addEventListener("click", () => {
-
-        console.log(chosenOpt);
         if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
 
             console.log(document.querySelectorAll(".chosen"));
@@ -99,27 +82,13 @@ function RenderBoilPage() {
 }
 
 function StartTimer(opt) {
-    console.log("dax att koka");
-    wrapper.innerHTML = `
-    <header>
-      <img id="title"> 
-    </header>
-    <div id="eggIcon">
-      <img id="eggPic"> 
-      <div id="yolk"></div>
-    </div>
+    basicLayout();
 
-  <div id="timer" >
-        <div> Time left </div>
-        <div id="clock"> 00:00 </div>
-        <button onclick="stopTimer()">Stop</button>
-  </div>
-
-    <div id="popUp" class="hidden">
-        <div id="popUpBackground"></div>
-        <div id="popUpWindow">
-            <p id="prompt"></p>
-        </div>
+    wrapper.innerHTML += `
+    <div id="timer" >
+            <div> Time left </div>
+            <div id="clock"> 00:00 </div>
+            <button onclick="stopTimer()">Stop</button>
     </div>
   `;
 

@@ -53,14 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function renderStartPage(params) {
 
-  wrapper.innerHTML = `
-    <header>
-      <img id="title"> 
-    </header>
-    <div id="eggIcon">
-      <img id="eggPic"> 
-      <div id="yolk"></div>
-    </div>
+  basicLayout();
+  wrapper.innerHTML += `
     <button onclick="RenderBoilPage()">Lets boil some eggs!</button>
   `;
 
