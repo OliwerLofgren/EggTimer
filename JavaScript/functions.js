@@ -23,10 +23,10 @@ function basicLayout() {
         </div>
 
         <div id="popUp" class="hidden">
-        <div id="popUpBackground"></div>
-        <div id="popUpWindow">
-            <p id="prompt"></p>
+            <div id="popUpBackground"></div>
+            <div id="popUpWindow">
+                <p id="prompt"></p>
+            </div>
         </div>
-    </div>
     `;
 }

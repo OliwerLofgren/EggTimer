@@ -2,7 +2,6 @@ function RenderBoilPage() {
 
     basicLayout();
     wrapper.innerHTML += `
-
     <div>
         <div class="optionDiv">
             <p> How would you like your egg? </p>
