@@ -1,6 +1,6 @@
 function RenderBoilPage() {
-    basicLayout();
-    wrapper.innerHTML += `
+  basicLayout();
+  wrapper.innerHTML += `
     <div>
         <div class="optionDiv">
             <p> How would you like your egg? </p>
@@ -20,140 +20,150 @@ function RenderBoilPage() {
     <button id="startTimer"> Lets start boil some eggs! </button>
   `;
 
-    wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
+  wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+  wrapper.querySelector("#title").src = "/images/title.png";
 
-    let chosenOpt = {};
+  let chosenOpt = {};
 
-    let option = wrapper.querySelectorAll(".optionDiv");
+  let option = wrapper.querySelectorAll(".optionDiv");
 
-    option.forEach((opt) => {
-        opt.addEventListener("click", (event) => {
-            event.target.classList.toggle("chosen");
+  option.forEach((opt) => {
+    opt.addEventListener("click", (event) => {
+      event.target.classList.toggle("chosen");
 
-            let parent = event.target.parentElement;
-            let childs = parent.querySelectorAll("div");
+      let parent = event.target.parentElement;
+      let childs = parent.querySelectorAll("div");
 
-            childs.forEach((child) => {
-                if (child.classList == "option chosen") {
-                    if (
-                        child.textContent === "Soft" ||
-                        child.textContent === "Medium" ||
-                        child.textContent === "Hard"
-                    ) {
-                        chosenOpt.liking = child.textContent;
-                    }
+      childs.forEach((child) => {
+        if (child.classList == "option chosen") {
+          if (
+            child.textContent === "Soft" ||
+            child.textContent === "Half" ||
+            child.textContent === "Hard"
+          ) {
+            chosenOpt.liking = child.textContent;
+          }
 
-                    if (
-                        child.textContent === "S" ||
-                        child.textContent === "M" ||
-                        child.textContent === "L"
-                    ) {
-                        chosenOpt.size = child.textContent;
-                    }
-
-                    if (child.textContent === "Soft" || child.textContent === "Half" || child.textContent === "Hard") {
-                        chosenOpt.liking = child.textContent
-                    }
-
-                    if (child.textContent === "Small" || child.textContent === "Medium" || child.textContent === "Large") {
-                        chosenOpt.size = child.textContent
-                    }
-
-                }
-            })
-        })
-    })
-
-    wrapper.querySelector("#startTimer").addEventListener("click", () => {
-        if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
-
-            console.log(document.querySelectorAll(".chosen"));
-            let chosen = document.querySelectorAll(".chosen");
-            if (chosen.length !== 3) {
-                console.log("Too many or too little");
-                console.log(chosenOpt);
-                popUp();
-            }
-            StartTimer(chosenOpt)
-        } else {
-            console.log("Too many or too little");
-            console.log(chosenOpt);
-            popUp();
-        };
-    });
-};
-
-wrapper.querySelector("#startTimer").addEventListener("click", () => {
-    if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
-        console.log(document.querySelectorAll(".chosen"));
-        let chosen = document.querySelectorAll(".chosen");
-        if (chosen.length !== 3) {
-            console.log("Too many or too little");
-            console.log(chosenOpt);
-            popUp();
+          if (
+            child.textContent === "Small" ||
+            child.textContent === "Medium" ||
+            child.textContent === "Large"
+          ) {
+            chosenOpt.size = child.textContent;
+          }
         }
-        StartTimer(chosenOpt);
-    } else {
+      });
+    });
+  });
+
+  wrapper.querySelector("#startTimer").addEventListener("click", () => {
+    if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
+      console.log(document.querySelectorAll(".chosen"));
+      let chosen = document.querySelectorAll(".chosen");
+      if (chosen.length !== 3) {
         console.log("Too many or too little");
         console.log(chosenOpt);
         popUp();
+      }
+      StartTimer(chosenOpt);
+    } else {
+      console.log("Too many or too little");
+      console.log(chosenOpt);
+      popUp();
     }
-});
-
-
-function StartTimer(opt) {
-    basicLayout();
-
-    wrapper.innerHTML += `
-    <div id="timer" >
-            <div> Time left </div>
-            <div id="clock"> 00:00 </div>
-            <button onclick="stopTimer()">Stop</button>
-    </div>
-  `;
-
-    let divDom;
-    divDom = `${opt.liking}_${opt.size}`;
-
-    console.log(divDom);
-
-    console.log(opt);
-    wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
-    startTimer();
-
+  });
 }
 
-// let seconds = 0;
-// let minutes = 0;
-// let timer;
+function StartTimer(opt) {
+  basicLayout();
 
-// function startTimer() {
-//     timer = setInterval(incrementTimer, 1000);
-// }
+  let divDom;
+  divDom = `${opt.liking}_${opt.size}`;
 
-// function stopTimer() {
-//     clearInterval(timer);
-// }
+  wrapper.innerHTML += `
+  <div id="timer" >
+  <div> Time left </div>
+  <div id="clock"> 00:00 </div>
+  <button id="stopButton">Stop</button>
+  </div>
+  `;
 
-// function incrementTimer() {
+  console.log(divDom);
 
-//     let userTime = document.querySelector("#clock").value;
+  console.log(opt);
 
-//     seconds++;
-//     if (seconds == userTime) {
-//         console.log("done");
-//         clearInterval(timer);
-//         resetTimer()
-//     }
-//     if (seconds === 60) {
-//         seconds = 0;
-//         minutes++;
-//     }
+  wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+  wrapper.querySelector("#title").src = "/images/title.png";
 
-//     document.getElementById("clock").innerText =
-//         ("0" + minutes).slice(-2) +
-//         ":" +
-//         ("0" + seconds).slice(-2);
-// }
+  timer_function(divDom);
+}
+
+function timer_function(option) {
+  // Clear any previous timers
+
+  const timerDisplay = document.getElementById("clock");
+  let countdown; // Variable to store the timer ID
+  let secondsRemaining; // Variable to store the remaining seconds
+
+  // Define the timer durations for different options
+  const timerDurations = {
+    Soft_Small: 6 * 60, // 6 minutes
+    Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
+    Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
+
+    Half_Small: 6 * 60 + 49, // 6 minutes 49 seconds
+    Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
+    Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
+
+    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Medium: 10 * 60, // 10 minutes
+    Hard_Large: 11 * 60, // 11 minutes
+  };
+
+  // Get the timer duration based on the selected option
+  clearTimeout(countdown);
+  const duration = timerDurations[option];
+
+  if (duration === undefined) {
+    // Handle invalid options
+    timerDisplay.textContent = "Invalid option!";
+    return;
+  }
+  // Function to stop the timer and clear the timeout
+  function stopTimer() {
+    clearTimeout(countdown);
+    // Optionally, you can update the display or perform any other actions when the timer is stopped.
+    // For example, you can display a message.
+    document.getElementById("clock").textContent = "Timer stopped";
+  }
+
+  // Add click event listener to the "Stop" button
+  wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+  // Calculate the total seconds based on the selected duration
+  secondsRemaining = duration;
+
+  // Function to update the timer display
+  function updateTimer() {
+    if (secondsRemaining <= 0) {
+      // If time is up, display "Go get your egg!"
+      timerDisplay.textContent = "Go get your egg!";
+    } else {
+      // Calculate and display the remaining minutes and seconds
+      const minutes = Math.floor(secondsRemaining / 60);
+      const seconds = secondsRemaining % 60;
+
+      timerDisplay.textContent = `${minutes}:${
+        seconds < 10 ? "0" : ""
+      }${seconds}`;
+
+      // Decrement the remaining seconds
+      secondsRemaining--;
+
+      // Schedule the next update in 1 second
+      countdown = setTimeout(updateTimer, 1000);
+    }
+  }
+
+  // Initial call to updateTimer to set the initial display and start the timer
+  updateTimer();
+}
