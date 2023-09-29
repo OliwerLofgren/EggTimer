@@ -1,76 +1,90 @@
 @font-face {
-  font-family: "Comfortaa";
-  src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+    font-family: "Comfortaa";
+    src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
 body {
-  background-color: black;
-  margin: 0;
+    background-color: black;
+    margin: 0;
 }
 
 #wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  border-radius: 20px;
-  width: 400px;
-  background-color: #fdf5ec;
-  overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    border-radius: 20px;
+    width: 400px;
+    background-color: #fdf5ec;
+    overflow: scroll;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #title {
-  height: 180px;
-  width: 350px;
-  padding: 20px;
+    height: 180px;
+    width: 350px;
+    padding: 20px;
 }
 
 #eggIcon {
-  width: 200px;
-  height: 300px;
+    width: 200px;
+    height: 300px;
 }
 
 #yolk {
-  height: 130px;
-  width: 130px;
-  background-color: yellow;
-  border-radius: 70px;
-  position: relative;
-  left: 35px;
-  bottom: 150px;
-  border: 2px solid #b69244;
+    height: 130px;
+    width: 130px;
+    background-color: yellow;
+    border-radius: 70px;
+    position: relative;
+    left: 35px;
+    bottom: 150px;
+    border: 2px solid #b69244;
 }
 
 img {
-  height: 260px;
-  width: 200px;
+    height: 260px;
+    width: 200px;
 }
 
 h1 {
-  font-family: Comfortaa;
+    font-family: Comfortaa;
 }
 
 button {
-  width: 200px;
-  height: 70px;
-  border-radius: 30px;
-  background-color: #fce4b1;
-  font-size: 16px;
-  font-family: Comfortaa;
+    width: 200px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #fce4b1;
+    font-size: 16px;
+    font-family: Comfortaa;
+}
+
+#timer {
+    text-align: center;
 }
 
 #clock {
-  font-size: 50px;
-  font-family: Montserrat;
+    font-size: 50px;
+    font-family: Montserrat;
+    font-weight: bolder;
+}
+
+#stopButton {
+    margin-top: 30px;
+}
+
+#funFact {
+    font-family: Comfortaa;
+    padding: 0px 10px 0px 10px;
 }

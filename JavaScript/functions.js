@@ -1,10 +1,10 @@
-function popUp() {
+function popUp(content) {
     document.querySelector("#popUpWindow").innerHTML = `
     <p id="prompt"></p>
 `;
 
     document.querySelector("#popUp").classList.remove("hidden");
-    document.querySelector("#prompt").textContent = "You can only chose one of each option!";
+    document.querySelector("#prompt").textContent = content;
     let button = document.createElement("button");
     button.textContent = "OK";
     button.classList.add("OK");
