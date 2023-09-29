@@ -6,21 +6,15 @@ function RenderBoilPage() {
         <div class="optionDiv">
             <p> How would you like your egg? </p>
             <div id="soft" class="option">Soft</div>
-            <div id="medium" class="option">Medium</div>
+            <div id="half" class="option">Half</div>
             <div id="hard" class="option">Hard</div>
         </div>
 
         <div class="optionDiv">
             <p> What is the size of the egg? </p>
-            <div id="s" class="option">S</div>
-            <div id="m" class="option">M</div>
-            <div id="l" class="option">L</div>
-        </div>
-
-        <div class="optionDiv">
-            <p> Add egg to hot or cold water? </p>
-            <div id="hot" class="option">Hot</div>
-            <div id="cold" class="option">Cold</div>
+            <div id="s" class="option">Small</div>
+            <div id="m" class="option">Medium</div>
+            <div id="l" class="option">Large</div>
         </div>
 
         </div>
@@ -45,17 +39,17 @@ function RenderBoilPage() {
             childs.forEach(child => {
                 if (child.classList == "option chosen") {
 
-                    if (child.textContent === "Soft" || child.textContent === "Medium" || child.textContent === "Hard") {
+                    if (child.textContent === "Soft" || child.textContent === "Half" || child.textContent === "Hard") {
                         chosenOpt.liking = child.textContent
                     }
 
-                    if (child.textContent === "S" || child.textContent === "M" || child.textContent === "L") {
+                    if (child.textContent === "Small" || child.textContent === "Medium" || child.textContent === "Large") {
                         chosenOpt.size = child.textContent
                     }
 
-                    if (child.textContent === "Hot" || child.textContent === "Cold") {
-                        chosenOpt.temp = child.textContent
-                    }
+                    // if (child.textContent === "Hot" || child.textContent === "Cold") {
+                    //     chosenOpt.temp = child.textContent
+                    // }
                 }
             })
         })
@@ -91,7 +85,12 @@ function StartTimer(opt) {
     </div>
   `;
 
+    let divDom;
+    divDom = `${opt.liking}_${opt.size}`;
 
+    console.log(divDom);
+
+    console.log(opt);
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
     startTimer();
