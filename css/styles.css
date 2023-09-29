@@ -80,6 +80,7 @@ button {
     font-weight: bolder;
 }
 
+<<<<<<< Updated upstream
 #stopButton {
     margin-top: 30px;
 }
@@ -88,3 +89,26 @@ button {
     font-family: Comfortaa;
     padding: 0px 10px 0px 10px;
 }
+=======
+@keyframes wiggle {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(5px) rotate(5deg);
+  }
+}
+
+.wiggle {
+  animation: wiggle 2s ease infinite alternate;
+}
+>>>>>>> Stashed changes

@@ -88,6 +88,7 @@ function StartTimer(opt) {
   <button id="stopButton">Stop</button>
   </div>
   `;
+  wrapper.querySelector("#eggIcon").classList.add("wiggle");
 
     console.log(divDom);
 
@@ -158,7 +159,15 @@ function timer_function(option) {
 
     // Get the timer duration based on the selected option
     clearTimeout(countdown);
+<<<<<<< Updated upstream
     const duration = timerDurations[option];
+=======
+
+    wrapper.querySelector("#eggIcon").classList.remove("wiggle");
+
+    document.getElementById("clock").textContent = "Timer stopped";
+  }
+>>>>>>> Stashed changes
 
     if (duration === undefined) {
         // Handle invalid options
