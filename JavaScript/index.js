@@ -93,6 +93,7 @@ function StartTimer(opt) {
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
 
+
     wrapper.querySelector("#eggIcon").style.position = "relative";
     wrapper.querySelector("#eggIcon").style.bottom = "50px";
 
@@ -100,6 +101,11 @@ function StartTimer(opt) {
     timer_function(divDom);
 
     displayNextFact(op);
+    document.querySelector("#funFact").textContent = "Fun fact";
+    timer_function(divDom);
+
+    //   const funFact = wrapper.querySelector("#funFact");
+    //   displayNextFact(funFact, true);
 }
 
 let op = true;
@@ -130,7 +136,7 @@ function displayNextFact(opt) {
             }, 1000); // This timeout should match the transition duration
         } else {
             i = 0;
-            displayNextFact(op);
+            displayNextFact();
             console.log("gör om");
         }
     }
@@ -153,7 +159,8 @@ function timer_function(option) {
         Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
         Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-        Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+        // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+        Hard_Small: 45,
         Hard_Medium: 10 * 60, // 10 minutes
         Hard_Large: 11 * 60, // 11 minutes
     };
@@ -166,7 +173,6 @@ function timer_function(option) {
     function stopTimer() {
         clearTimeout(countdown);
         wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-
         popUp("Timer has stopped");
         let opt = false;
         displayNextFact(opt);
@@ -181,8 +187,7 @@ function timer_function(option) {
     function updateTimer() {
         if (secondsRemaining <= 0) {
             // If time is up, display "Go get your egg!"
-            // let opt = false;
-            // displayNextFact(opt);
+            // timerDisplay.textContent = "Go get your egg!";
             popUp("Go and get you egg!", "func");
         } else {
             // Calculate and display the remaining minutes and seconds
@@ -192,6 +197,24 @@ function timer_function(option) {
             timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""
                 }${seconds}`;
 
+            // Check if the option does not include "Soft"
+            const isSoftBoiled = !option.includes("Soft");
+
+            // Calculate the percentage of time remaining
+            const percentageRemaining = (secondsRemaining / duration) * 100;
+
+            // Update yolk color based on percentageRemaining and option
+            const yolk = document.getElementById("yolk");
+            if (!isSoftBoiled && percentageRemaining < 10) {
+                // When there's less than 10% of time remaining and not "Soft," make yolk more orange
+                yolk.style.backgroundColor = "#ff1100"; // Orange
+                console.log("orange");
+            } else {
+                // Otherwise, keep it yellow
+                yolk.style.backgroundColor = "#195de6"; // Yellow
+                console.log("yellow");
+            }
+
             // Decrement the remaining seconds
             secondsRemaining--;
 
@@ -200,6 +223,13 @@ function timer_function(option) {
         }
     }
 
+
+    // Add click event listener to the "Stop" button
+    // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+    // Calculate the total seconds based on the selected duration
+    secondsRemaining = duration;
+
     // Initial call to updateTimer to set the initial display and start the timer
     updateTimer();
+
 }
