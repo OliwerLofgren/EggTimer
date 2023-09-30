@@ -20,7 +20,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr, 2fr;
-    gap: 10px;
+    gap: 0px 10px;
+    margin: 10px;
 }
 
 .optionDiv>p {
@@ -28,7 +29,7 @@
 }
 
 #startTimer {
-    margin-top: 20px;
+    margin: 20px;
     height: 70px;
     padding: 10px;
 }
@@ -70,7 +71,7 @@
 
 #popUpWindow {
     position: absolute;
-    background-color: var(--beige);
+    background-color: #fce4b1;
     width: 300px;
     border-radius: 10px;
     box-shadow: 0 0 20px #41000d47;
@@ -83,17 +84,20 @@
 }
 
 #popUpWindow button {
-    border: 2px solid var(--brown);
+    border: 0px;
     border-radius: 5px;
-    background-color: var(--beige);
+    /* background-color: var(--beige); */
 
     transition: 0.5s;
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-#popUpWindow button:hover {
+/* #popUpWindow button:hover {
     background-color: var(--brown);
-    color: var(--beige);
-}
+    color: #6b4d38;
+} */
 
 .hidden {
     display: none !important;

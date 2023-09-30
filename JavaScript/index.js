@@ -82,10 +82,10 @@ function StartTimer(opt) {
 
     wrapper.innerHTML += `
         <div id="timer">
+            <p id="promp">Fun facts about eggs:</p>
             <p id="funFact"></p>
             <p id="feedback"></p>
             <div id="clock"> 00:00 </div>
-            <button id="stopButton">Stop</button>
         </div>
     `;
     wrapper.querySelector("#eggIcon").classList.add("wiggle");
@@ -93,19 +93,24 @@ function StartTimer(opt) {
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
 
-    document.querySelector("#funFact").textContent = "Fun fact";
+    wrapper.querySelector("#eggIcon").style.position = "relative";
+    wrapper.querySelector("#eggIcon").style.bottom = "50px";
+
+    // document.querySelector("#funFact").textContent = "Fun fact";
     timer_function(divDom);
 
-    const funFact = wrapper.querySelector("#funFact");
-    displayNextFact(funFact, true);
+    displayNextFact(op);
 }
 
-const funFact = document.querySelector("#funFact");
+let op = true;
 
 let i = 0;
 
-function displayNextFact(funFact, opt) {
-    if (opt == true) {
+function displayNextFact(opt) {
+
+    const funFact = wrapper.querySelector("#funFact");
+
+    if (opt !== false) {
 
         if (i < eggInfo.length) {
             // Apply a fade-out effect
@@ -125,7 +130,7 @@ function displayNextFact(funFact, opt) {
             }, 1000); // This timeout should match the transition duration
         } else {
             i = 0;
-            displayNextFact();
+            displayNextFact(op);
             console.log("gör om");
         }
     }
@@ -168,7 +173,7 @@ function timer_function(option) {
     }
 
     // Add click event listener to the "Stop" button
-    wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+    // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
     // Calculate the total seconds based on the selected duration
     secondsRemaining = duration;
 
@@ -176,8 +181,9 @@ function timer_function(option) {
     function updateTimer() {
         if (secondsRemaining <= 0) {
             // If time is up, display "Go get your egg!"
-            // timerDisplay.textContent = "Go get your egg!";
-            popUp("Go and get you egg!");
+            // let opt = false;
+            // displayNextFact(opt);
+            popUp("Go and get you egg!", "func");
         } else {
             // Calculate and display the remaining minutes and seconds
             const minutes = Math.floor(secondsRemaining / 60);

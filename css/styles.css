@@ -1,112 +1,147 @@
 @font-face {
-  font-family: "Comfortaa";
-  src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+    font-family: "Comfortaa";
+    src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
 body {
-  background-color: black;
-  margin: 0;
+    background-color: black;
+    margin: 0;
 }
 
 #wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  border-radius: 20px;
-  width: 400px;
-  background-color: #fdf5ec;
-  overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    border-radius: 20px;
+    width: 400px;
+    background-color: #fdf5ec;
+    overflow: scroll;
+    /* justify-content: space-between; */
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    height: 150px;
 }
 
 #title {
-  height: 180px;
-  width: 350px;
-  padding: 20px;
+    height: 140px;
+    width: 300px;
+    padding: 20px;
 }
 
 #eggIcon {
-  width: 200px;
-  height: 300px;
+    width: 200px;
+    height: 270px;
+
 }
 
 #yolk {
-  height: 130px;
-  width: 130px;
-  background-color: yellow;
-  border-radius: 70px;
-  position: relative;
-  left: 35px;
-  bottom: 150px;
-  border: 2px solid #b69244;
+    height: 130px;
+    width: 130px;
+    background-color: yellow;
+    border-radius: 70px;
+    position: relative;
+    left: 35px;
+    bottom: 150px;
+    border: 2px solid #b69244;
+}
+
+#info {
+    height: 40px;
+    width: 40px;
+    background-color: #b69244;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fce4b1;
+    position: relative;
+    bottom: 40px;
+    font-family: Comfortaa;
 }
 
 img {
-  height: 260px;
-  width: 200px;
+    height: 260px;
+    width: 200px;
 }
 
 h1 {
-  font-family: Comfortaa;
+    font-family: Comfortaa;
 }
 
 button {
-  width: 200px;
-  height: 70px;
-  border-radius: 30px;
-  background-color: #fce4b1;
-  font-size: 16px;
-  font-family: Comfortaa;
+    width: 200px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #fce4b1;
+    font-size: 16px;
+    font-family: Comfortaa;
+    border: 1px solid #b69244;
 }
 
 #timer {
-  text-align: center;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 #clock {
-  font-size: 50px;
-  font-family: Montserrat;
-  font-weight: bolder;
+    font-size: 60px;
+    font-family: Montserrat;
+    font-weight: bolder;
+    color: #b45f06;
+}
+
+#promp {
+    font-family: Comfortaa;
 }
 
 @keyframes wiggle {
-  0% {
-    transform: translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateX(-5px) rotate(-5deg);
-  }
-  50% {
-    transform: translateX(5px) rotate(5deg);
-  }
-  75% {
-    transform: translateX(-5px) rotate(-5deg);
-  }
-  100% {
-    transform: translateX(5px) rotate(5deg);
-  }
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(5deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translateX(5px) rotate(5deg);
+    }
 }
 
 .wiggle {
-  animation: wiggle 2s ease infinite alternate;
+    animation: wiggle 2s ease infinite alternate;
 }
 
 #stopButton {
-  margin-top: 30px;
+    margin: 30px;
 }
 
 #funFact {
-  font-family: Comfortaa;
-  padding: 0px 10px 0px 10px;
+    font-family: Comfortaa;
+    padding: 0px 10px 0px 10px;
+    height: 100px;
+    display: flex;
+    align-content: center;
+    margin: 0px;
 }
