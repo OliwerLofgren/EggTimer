@@ -94,6 +94,11 @@
     margin-bottom: 10px;
 }
 
+#popUpWindow #prompt {
+    font-family: Comfortaa;
+    padding: 10px;
+}
+
 /* #popUpWindow button:hover {
     background-color: var(--brown);
     color: #6b4d38;
