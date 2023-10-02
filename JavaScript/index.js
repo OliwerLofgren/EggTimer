@@ -93,7 +93,6 @@ function StartTimer(opt) {
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
     wrapper.querySelector("#title").src = "/images/title.png";
 
-
     wrapper.querySelector("#eggIcon").style.position = "relative";
     wrapper.querySelector("#eggIcon").style.bottom = "50px";
 
@@ -113,11 +112,9 @@ let op = true;
 let i = 0;
 
 function displayNextFact(opt) {
-
     const funFact = wrapper.querySelector("#funFact");
 
     if (opt !== false) {
-
         if (i < eggInfo.length) {
             // Apply a fade-out effect
             funFact.style.opacity = 0;
@@ -159,8 +156,8 @@ function timer_function(option) {
         Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
         Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-        // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-        Hard_Small: 45,
+        Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+        // Hard_Small: 45,
         Hard_Medium: 10 * 60, // 10 minutes
         Hard_Large: 11 * 60, // 11 minutes
     };
@@ -177,6 +174,11 @@ function timer_function(option) {
         let opt = false;
         displayNextFact(opt);
     }
+
+    // Add click event listener to the "Stop" button
+    // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+    // Calculate the total seconds based on the selected duration
+    secondsRemaining = duration;
 
     // Add click event listener to the "Stop" button
     // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
@@ -224,7 +226,6 @@ function timer_function(option) {
         }
     }
 
-
     // Add click event listener to the "Stop" button
     // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
     // Calculate the total seconds based on the selected duration
@@ -232,5 +233,4 @@ function timer_function(option) {
 
     // Initial call to updateTimer to set the initial display and start the timer
     updateTimer();
-
 }
