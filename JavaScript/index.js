@@ -141,7 +141,6 @@ function timer_function(option) {
   // Define the timer durations for different options
   const timerDurations = {
     Soft_Small: 6 * 60, // 6 minutes
-    // Soft_Small: 5, // 6 minutes
     Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
     Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
@@ -149,8 +148,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    // Hard_Small: 50,
+    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Small: 10,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };

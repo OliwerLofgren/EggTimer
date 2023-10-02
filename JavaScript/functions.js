@@ -84,7 +84,8 @@ function popUp(content, fun) {
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", (e) => {
       document.querySelector("#popUp").classList.add("hidden");
-      removeBubbles();
     });
+    wrapper.querySelector("#eggIcon").style.position = "relative";
+    wrapper.querySelector("#eggIcon").style.bottom = "55px";
   }
 }
