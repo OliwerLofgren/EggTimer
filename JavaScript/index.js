@@ -91,9 +91,6 @@ function StartTimer(opt) {
   wrapper.querySelector("#eggIcon").style.position = "relative";
   wrapper.querySelector("#eggIcon").style.bottom = "35px";
 
-  // document.querySelector("#funFact").textContent = "Fun fact";
-  timer_function(divDom);
-
   displayNextFact(op);
   document.querySelector("#funFact").textContent = "Fun fact";
   timer_function(divDom);
@@ -101,7 +98,6 @@ function StartTimer(opt) {
   //   const funFact = wrapper.querySelector("#funFact");
   //   displayNextFact(funFact, true);
 }
-
 let op = true;
 
 let i = 0;
@@ -134,8 +130,6 @@ function displayNextFact(opt) {
 }
 
 function timer_function(option) {
-  // Clear any previous timers
-
   const timerDisplay = document.getElementById("clock");
   let countdown; // Variable to store the timer ID
   let secondsRemaining; // Variable to store the remaining seconds
@@ -150,8 +144,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    // Hard_Small: 45,
+    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Small: 10,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -165,12 +159,12 @@ function timer_function(option) {
   // Function to update the timer display
   function updateTimer() {
     if (secondsRemaining <= 0) {
-      // If time is up, display "Go get your egg!"
-      // timerDisplay.textContent = "Go get your egg!";
-      popUp("The time is up!");
-      wrapper.innerHTML += `
-                <button onclick="renderStartPage()"> Boil another </button>
-        `;
+      popUp("The time is up!", "fun");
+      wrapper.querySelector("#eggIcon").classList.remove("wiggle");
+      displayNextFact(false);
+      wrapper.querySelector("#promp").textContent = "";
+
+      animateBubbles(false);
     } else {
       // Calculate and display the remaining minutes and seconds
       const minutes = Math.floor(secondsRemaining / 60);
@@ -201,14 +195,18 @@ function timer_function(option) {
 
       // Schedule the next update in 1 second
       countdown = setTimeout(updateTimer, 1000);
+      animateBubbles(true);
     }
   }
   secondsRemaining = duration;
-  animateBubbles();
+
   updateTimer();
 }
-
-function createBubble() {
+let bubbles;
+function createBubble(done) {
+  if (!done) {
+    clearInterval(bubbles);
+  }
   // Create the bubbles container
   const bubblesContainer = document.createElement("div");
   bubblesContainer.id = "bubbles"; // Set the ID for styling
@@ -229,6 +227,10 @@ function createBubble() {
   });
 }
 
-function animateBubbles() {
-  setInterval(createBubble, 1000); // Create a new bubble every 1 second
+function animateBubbles(done) {
+  if (done === false) {
+    clearInterval(bubbles);
+  } else {
+    bubbles = setInterval(createBubble(false), 1000);
+  }
 }
