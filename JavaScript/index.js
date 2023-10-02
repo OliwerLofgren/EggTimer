@@ -170,6 +170,11 @@ function timer_function(option) {
       wrapper.querySelector("#promp").textContent = "";
 
       animateBubbles(false);
+      // Remove the "bubbles" container from the DOM
+      const bubblesContainer = document.getElementById("bubbles");
+      if (bubblesContainer) {
+        bubblesContainer.remove();
+      }
     } else {
       // Calculate and display the remaining minutes and seconds
       const minutes = Math.floor(secondsRemaining / 60);
@@ -207,34 +212,78 @@ function timer_function(option) {
 
   updateTimer();
 }
+
 let bubbles;
+let createBubbles = true; // Flag to control bubble creation
+
 function createBubble(done) {
   if (!done) {
     clearInterval(bubbles);
   }
-  // Create the bubbles container
-  const bubblesContainer = document.createElement("div");
-  bubblesContainer.id = "bubbles"; // Set the ID for styling
 
-  // Append the bubbles container to the wrapper
-  wrapper.appendChild(bubblesContainer);
+  const wrapper = document.getElementById("wrapper"); // Replace with your actual wrapper ID
+  if (createBubbles && wrapper) {
+    // Create the bubbles container
+    const bubblesContainer = document.createElement("div");
+    bubblesContainer.id = "bubbles"; // Set the ID for styling
 
-  // Create the bubble div
-  const bubble = document.createElement("div");
-  bubble.className = "bubble";
-  bubble.style.left = `${Math.random() * 100}% `;
-  bubble.style.animationDuration = `${Math.random() * 7 + 2} s`; // Random duration between 2 to 7 seconds
-  bubblesContainer.appendChild(bubble);
-  // Remove the bubble element once it reaches the top
-  bubble.addEventListener("animationiteration", () => {
-    bubble.remove();
-  });
+    wrapper.appendChild(bubblesContainer);
+
+    // Create the bubble div
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.animationDuration = `${Math.random() * 5 + 2}s`; // Random duration between 2 to 7 seconds
+    bubblesContainer.appendChild(bubble);
+
+    // Remove the bubble element once it reaches the top
+    bubble.addEventListener("animationiteration", () => {
+      bubble.remove();
+    });
+  }
 }
 
 function animateBubbles(done) {
-  if (done === false) {
+  if (!done) {
     clearInterval(bubbles);
+    createBubbles = false; // Set the flag to false when the timer is done
   } else {
-    bubbles = setInterval(createBubble(false), 1000);
+    bubbles = setInterval(() => createBubble(false), 1000);
+    createBubbles = true; // Set the flag to true when starting the animation
   }
 }
+
+// let bubbles;
+// function createBubble(done) {
+//   if (!done) {
+//     clearInterval(bubbles);
+//   }
+//   // Create the bubbles container
+//   const bubblesContainer = document.createElement("div");
+//   bubblesContainer.id = "bubbles"; // Set the ID for styling
+//   // bubblesContainer.classList.add("bubbles");
+
+//   const wrapper = document.getElementById("wrapper"); // Replace with your actual wrapper ID
+//   if (wrapper) {
+//     wrapper.appendChild(bubblesContainer);
+
+//     // Create the bubble div
+//     const bubble = document.createElement("div");
+//     bubble.className = "bubble";
+//     bubble.style.left = `${Math.random() * 100}% `;
+//     bubble.style.animationDuration = `${Math.random() * 7 + 2} s`; // Random duration between 2 to 7 seconds
+//     bubblesContainer.appendChild(bubble);
+//     // Remove the bubble element once it reaches the top
+//     bubble.addEventListener("animationiteration", () => {
+//       bubble.remove();
+//     });
+//   }
+// }
+
+// function animateBubbles(done) {
+//   if (!done) {
+//     clearInterval(bubbles);
+//   } else {
+//     bubbles = setInterval(() => createBubble(false), 1000);
+//   }
+// }
