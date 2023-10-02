@@ -18,7 +18,7 @@ function renderStartPage(params) {
   })
 
   wrapper.querySelector("#eggIcon").style.position = "relative";
-  wrapper.querySelector("#eggIcon").style.bottom = "70px";
+  wrapper.querySelector("#eggIcon").style.bottom = "80px";
   wrapper.style.justifyContent = "space-between";
 }
 

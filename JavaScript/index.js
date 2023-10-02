@@ -1,7 +1,7 @@
 function RenderBoilPage() {
     basicLayout();
     wrapper.innerHTML += `
-    <div>
+    <div id="box">
         <div class="optionDiv">
             <p> How would you like your egg? </p>
             <div id="soft" class="option">Soft</div>
@@ -89,7 +89,7 @@ function StartTimer(opt) {
     wrapper.querySelector("#title").src = "/images/title.png";
 
     wrapper.querySelector("#eggIcon").style.position = "relative";
-    wrapper.querySelector("#eggIcon").style.bottom = "50px";
+    wrapper.querySelector("#eggIcon").style.bottom = "35px";
 
     // document.querySelector("#funFact").textContent = "Fun fact";
     timer_function(divDom);

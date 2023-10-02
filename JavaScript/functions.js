@@ -41,10 +41,7 @@ function popUp(content, fun) {
             document.querySelector("#popUp").classList.add("hidden");
         });
     } else {
-
-
         if (fun) {
-            // basicLayout();
             wrapper.innerHTML = `
                 <header>
                     <img id="title"> 
