@@ -10,7 +10,7 @@ function renderStartPage(params) {
   `;
 
   wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-  wrapper.querySelector("#title").src = "/images/title.png";
+  wrapper.querySelector("#title").src = "/images/NewTitle.png";
   wrapper.querySelector("#info").addEventListener("click", () => {
     let info;
     info = "How to use Eggcellent Countdown";

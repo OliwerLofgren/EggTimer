@@ -21,7 +21,7 @@ function RenderBoilPage() {
   `;
 
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
+    wrapper.querySelector("#title").src = "/images/NewTitle.png";
 
     let chosenOpt = {};
 
@@ -86,7 +86,7 @@ function StartTimer(opt) {
     wrapper.querySelector("#eggIcon").classList.add("wiggle");
 
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-    wrapper.querySelector("#title").src = "/images/title.png";
+    wrapper.querySelector("#title").src = "/images/NewTitle.png";
 
     wrapper.querySelector("#eggIcon").style.position = "relative";
     wrapper.querySelector("#eggIcon").style.bottom = "35px";

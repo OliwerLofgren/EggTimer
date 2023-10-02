@@ -68,7 +68,7 @@ function popUp(content, fun) {
             `;
 
             wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-            wrapper.querySelector("#title").src = "/images/title.png";
+            wrapper.querySelector("#title").src = "/images/NewTitle.png";
         }
         wrapper.querySelector("#popUpWindow").innerHTML = `
         <p id="prompt"></p>
