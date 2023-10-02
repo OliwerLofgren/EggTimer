@@ -17,7 +17,7 @@ function RenderBoilPage() {
         </div>
 
         </div>
-    <button id="startTimer"> Lets start boil some eggs! </button>
+    <button id="startTimer"> Start boiling </button>
   `;
 
     wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
@@ -188,10 +188,8 @@ function timer_function(option) {
         if (secondsRemaining <= 0) {
             // If time is up, display "Go get your egg!"
             // timerDisplay.textContent = "Go get your egg!";
-            popUp("The time is up!");
-            wrapper.innerHTML += `
-                <button onclick="renderStartPage()"> Boil another </button>
-        `;
+            popUp("The time is up!", "fun");
+            console.log("klar");
         } else {
             // Calculate and display the remaining minutes and seconds
             const minutes = Math.floor(secondsRemaining / 60);

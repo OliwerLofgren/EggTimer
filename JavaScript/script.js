@@ -5,7 +5,7 @@ let wrapper = document.querySelector("#wrapper");
 function renderStartPage(params) {
   basicLayout();
   wrapper.innerHTML += `
-    <button onclick="RenderBoilPage()">Lets boil some eggs!</button>
+    <button onclick="RenderBoilPage()">Start</button>
     <div id="info"> ? </div>
   `;
 
