@@ -147,8 +147,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    Hard_Small: 45,
+    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    // Hard_Small: 45,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
