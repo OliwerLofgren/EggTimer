@@ -86,6 +86,7 @@ function popUp(content, fun) {
             document.querySelector("#popUp").classList.add("hidden");
             removeBubbles();
         });
-        console.log(wrapper.querySelectorAll("#bubbles"));
+        wrapper.querySelector("#eggIcon").style.position = "relative";
+        wrapper.querySelector("#eggIcon").style.bottom = "55px";
     }
 }
