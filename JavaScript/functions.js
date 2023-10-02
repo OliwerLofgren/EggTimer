@@ -1,4 +1,4 @@
-function popUp(content, func) {
+function popUp(content) {
     if (content === "How to use Eggcellent Countdown") {
         console.log("hej");
         document.querySelector("#popUpWindow").innerHTML = `
@@ -34,9 +34,6 @@ function popUp(content, func) {
         button.classList.add("OK");
         document.querySelector("#popUpWindow").append(button);
         document.querySelector(".OK").addEventListener("click", (e) => {
-            if (func) {
-                renderStartPage();
-            }
             document.querySelector("#popUp").classList.add("hidden");
         });
     }

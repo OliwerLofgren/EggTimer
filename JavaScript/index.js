@@ -173,7 +173,7 @@ function timer_function(option) {
     function stopTimer() {
         clearTimeout(countdown);
         wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-        popUp("Timer has stopped");
+        popUp("The time is up!");
         let opt = false;
         displayNextFact(opt);
     }
@@ -188,7 +188,10 @@ function timer_function(option) {
         if (secondsRemaining <= 0) {
             // If time is up, display "Go get your egg!"
             // timerDisplay.textContent = "Go get your egg!";
-            popUp("Go and get you egg!", "func");
+            popUp("The time is up!");
+            wrapper.innerHTML += `
+                <button onclick="renderStartPage()"> Boil another </button>
+        `;
         } else {
             // Calculate and display the remaining minutes and seconds
             const minutes = Math.floor(secondsRemaining / 60);
@@ -207,11 +210,11 @@ function timer_function(option) {
             const yolk = document.getElementById("yolk");
             if (!isSoftBoiled && percentageRemaining < 10) {
                 // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-                yolk.style.backgroundColor = "#ff1100"; // Orange
+                yolk.style.backgroundColor = "orange"; // Orange
                 console.log("orange");
             } else {
                 // Otherwise, keep it yellow
-                yolk.style.backgroundColor = "#195de6"; // Yellow
+                yolk.style.backgroundColor = "yellow"; // Yellow
                 console.log("yellow");
             }
 
