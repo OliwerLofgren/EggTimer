@@ -140,8 +140,8 @@ function timer_function(option) {
 
   // Define the timer durations for different options
   const timerDurations = {
-    // Soft_Small: 6 * 60, // 6 minutes
-    Soft_Small: 5, // 6 minutes
+    Soft_Small: 6 * 60, // 6 minutes
+    // Soft_Small: 5, // 6 minutes
     Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
     Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
@@ -149,8 +149,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    Hard_Small: 10,
+    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    // Hard_Small: 50,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -252,38 +252,3 @@ function animateBubbles(done) {
     createBubbles = true; // Set the flag to true when starting the animation
   }
 }
-
-// let bubbles;
-// function createBubble(done) {
-//   if (!done) {
-//     clearInterval(bubbles);
-//   }
-//   // Create the bubbles container
-//   const bubblesContainer = document.createElement("div");
-//   bubblesContainer.id = "bubbles"; // Set the ID for styling
-//   // bubblesContainer.classList.add("bubbles");
-
-//   const wrapper = document.getElementById("wrapper"); // Replace with your actual wrapper ID
-//   if (wrapper) {
-//     wrapper.appendChild(bubblesContainer);
-
-//     // Create the bubble div
-//     const bubble = document.createElement("div");
-//     bubble.className = "bubble";
-//     bubble.style.left = `${Math.random() * 100}% `;
-//     bubble.style.animationDuration = `${Math.random() * 7 + 2} s`; // Random duration between 2 to 7 seconds
-//     bubblesContainer.appendChild(bubble);
-//     // Remove the bubble element once it reaches the top
-//     bubble.addEventListener("animationiteration", () => {
-//       bubble.remove();
-//     });
-//   }
-// }
-
-// function animateBubbles(done) {
-//   if (!done) {
-//     clearInterval(bubbles);
-//   } else {
-//     bubbles = setInterval(() => createBubble(false), 1000);
-//   }
-// }
