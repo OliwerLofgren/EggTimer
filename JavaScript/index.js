@@ -82,10 +82,10 @@ function StartTimer(opt) {
 
   wrapper.innerHTML += `
         <div id="timer">
+            <p id="promp">Fun facts about eggs:</p>
             <p id="funFact"></p>
             <p id="feedback"></p>
             <div id="clock"> 00:00 </div>
-            <button id="stopButton">Stop</button>
         </div>
     `;
   wrapper.querySelector("#eggIcon").classList.add("wiggle");
@@ -93,19 +93,28 @@ function StartTimer(opt) {
   wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
   wrapper.querySelector("#title").src = "/images/title.png";
 
+  wrapper.querySelector("#eggIcon").style.position = "relative";
+  wrapper.querySelector("#eggIcon").style.bottom = "50px";
+
+  // document.querySelector("#funFact").textContent = "Fun fact";
+  timer_function(divDom);
+
+  displayNextFact(op);
   document.querySelector("#funFact").textContent = "Fun fact";
   timer_function(divDom);
 
-  const funFact = wrapper.querySelector("#funFact");
-  displayNextFact(funFact, true);
+  //   const funFact = wrapper.querySelector("#funFact");
+  //   displayNextFact(funFact, true);
 }
 
-const funFact = document.querySelector("#funFact");
+let op = true;
 
 let i = 0;
 
-function displayNextFact(funFact, opt) {
-  if (opt == true) {
+function displayNextFact(opt) {
+  const funFact = wrapper.querySelector("#funFact");
+
+  if (opt !== false) {
     if (i < eggInfo.length) {
       // Apply a fade-out effect
       funFact.style.opacity = 0;
@@ -161,13 +170,13 @@ function timer_function(option) {
   function stopTimer() {
     clearTimeout(countdown);
     wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-    popUp("Timer has stopped");
+    popUp("The time is up!");
     let opt = false;
     displayNextFact(opt);
   }
 
   // Add click event listener to the "Stop" button
-  wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+  // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
   // Calculate the total seconds based on the selected duration
   secondsRemaining = duration;
 
@@ -176,7 +185,10 @@ function timer_function(option) {
     if (secondsRemaining <= 0) {
       // If time is up, display "Go get your egg!"
       // timerDisplay.textContent = "Go get your egg!";
-      popUp("Go and get you egg!");
+      popUp("The time is up!");
+      wrapper.innerHTML += `
+                <button onclick="renderStartPage()"> Boil another </button>
+        `;
     } else {
       // Calculate and display the remaining minutes and seconds
       const minutes = Math.floor(secondsRemaining / 60);
@@ -196,11 +208,11 @@ function timer_function(option) {
       const yolk = document.getElementById("yolk");
       if (!isSoftBoiled && percentageRemaining < 10) {
         // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-        yolk.style.backgroundColor = "#ff1100"; // Orange
+        yolk.style.backgroundColor = "orange"; // Orange
         console.log("orange");
       } else {
         // Otherwise, keep it yellow
-        yolk.style.backgroundColor = "#195de6"; // Yellow
+        yolk.style.backgroundColor = "yellow"; // Yellow
         console.log("yellow");
       }
 
@@ -211,6 +223,11 @@ function timer_function(option) {
       countdown = setTimeout(updateTimer, 1000);
     }
   }
+
+  // Add click event listener to the "Stop" button
+  // wrapper.querySelector("#stopButton").addEventListener("click", stopTimer);
+  // Calculate the total seconds based on the selected duration
+  secondsRemaining = duration;
 
   // Initial call to updateTimer to set the initial display and start the timer
   updateTimer();
