@@ -157,7 +157,6 @@ function timer_function(option) {
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
     Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    // Hard_Small: 45,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -199,21 +198,19 @@ function timer_function(option) {
       }${seconds}`;
 
       // Check if the option does not include "Soft"
-      const isSoftBoiled = !option.includes("Soft");
+      const isSoftBoiled = option.includes("Soft");
 
       // Calculate the percentage of time remaining
       const percentageRemaining = (secondsRemaining / duration) * 100;
 
       // Update yolk color based on percentageRemaining and option
       const yolk = document.getElementById("yolk");
-      if (!isSoftBoiled && percentageRemaining < 10) {
+      if (!isSoftBoiled && percentageRemaining < 25) {
         // When there's less than 10% of time remaining and not "Soft," make yolk more orange
         yolk.style.backgroundColor = "orange"; // Orange
-        console.log("orange");
       } else {
         // Otherwise, keep it yellow
         yolk.style.backgroundColor = "yellow"; // Yellow
-        console.log("yellow");
       }
 
       // Decrement the remaining seconds
@@ -231,4 +228,32 @@ function timer_function(option) {
 
   // Initial call to updateTimer to set the initial display and start the timer
   updateTimer();
+
+  // Call the animateBubbles function to start the bubble animation
+  animateBubbles();
+}
+
+function createBubble() {
+  // Create the bubbles container
+  const bubblesContainer = document.createElement("div");
+  bubblesContainer.id = "bubbles"; // Set the ID for styling
+
+  // Append the bubbles container to the wrapper
+  wrapper.appendChild(bubblesContainer);
+
+  // Create the bubble div
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.style.left = `${Math.random() * 100}%`;
+  bubble.style.animationDuration = `${Math.random() * 7 + 2}s`; // Random duration between 2 to 7 seconds
+  bubblesContainer.appendChild(bubble);
+
+  // Remove the bubble element once it reaches the top
+  bubble.addEventListener("animationiteration", () => {
+    bubble.remove();
+  });
+}
+
+function animateBubbles() {
+  setInterval(createBubble, 1000); // Create a new bubble every 1 second
 }

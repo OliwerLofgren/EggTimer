@@ -1,0 +1,73 @@
+JS:
+function createBubble() {
+  // Create the bubbles container
+  const bubblesContainer = document.createElement("div");
+  bubblesContainer.id = "bubbles"; // Set the ID for styling
+
+  // Append the bubbles container to the wrapper
+  wrapper.appendChild(bubblesContainer);
+
+  // Create the bubble div
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.style.left = `${Math.random() * 100}%`;
+  bubble.style.animationDuration = `${Math.random() * 5 + 2}s`; // Random duration between 2 to 7 seconds
+  bubblesContainer.appendChild(bubble);
+
+  // Remove the bubble element once it reaches the top
+  bubble.addEventListener("animationiteration", () => {
+    bubble.remove();
+  });
+}
+
+function animateBubbles() {
+  setInterval(createBubble, 1000); // Create a new bubble every 1 second
+}
+
+CSS:
+#bubbles {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; /* Set the width to 100% to match the parent container's width */
+  height: 100%; /* Adjust the height as needed */
+  overflow: hidden;
+  max-width: 400px; /* Set the maximum width to match the wrapper's width */
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 10px; /* Adjust the bubble size as needed */
+  height: 10px; /* Adjust the bubble size as needed */
+  width: 20px;
+  height: 20px;
+  background-color: rgba(173, 216, 230, 0.5); /* Light blue with opacity */
+  border-radius: 50%; /* Make it round */
+  position: absolute;
+  animation: riseUp ease-in-out infinite;
+  transform-origin: center bottom;
+  opacity: 0; /* Initially hidden */
+}
+
+@keyframes riseUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px); /* Adjust the distance the bubbles rise */
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
