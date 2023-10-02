@@ -20,7 +20,6 @@ function basicLayout() {
 function popUp(content, fun) {
     let wrapper = document.querySelector("#wrapper");
     if (content === "How to use Eggcellent Countdown") {
-        console.log("hej");
         document.querySelector("#popUpWindow").innerHTML = `
             <p id="prompt"></p>
         `;

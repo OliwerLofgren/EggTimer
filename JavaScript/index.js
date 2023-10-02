@@ -58,17 +58,12 @@ function RenderBoilPage() {
 
     wrapper.querySelector("#startTimer").addEventListener("click", () => {
         if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
-            console.log(document.querySelectorAll(".chosen"));
             let chosen = document.querySelectorAll(".chosen");
             if (chosen.length !== 3) {
-                console.log("Too many or too little");
-                console.log(chosenOpt);
                 popUp("You can only chose one of each option!");
             }
             StartTimer(chosenOpt);
         } else {
-            console.log("Too many or too little");
-            console.log(chosenOpt);
             popUp("You can only chose one of each option!");
         }
     });
@@ -134,7 +129,6 @@ function displayNextFact(opt) {
         } else {
             i = 0;
             displayNextFact();
-            console.log("gör om");
         }
     }
 }
@@ -191,7 +185,6 @@ function timer_function(option) {
             // If time is up, display "Go get your egg!"
             // timerDisplay.textContent = "Go get your egg!";
             popUp("The time is up!", "fun");
-            console.log("klar");
         } else {
             // Calculate and display the remaining minutes and seconds
             const minutes = Math.floor(secondsRemaining / 60);
@@ -211,11 +204,9 @@ function timer_function(option) {
             if (!isSoftBoiled && percentageRemaining < 10) {
                 // When there's less than 10% of time remaining and not "Soft," make yolk more orange
                 yolk.style.backgroundColor = "orange"; // Orange
-                console.log("orange");
             } else {
                 // Otherwise, keep it yellow
                 yolk.style.backgroundColor = "yellow"; // Yellow
-                console.log("yellow");
             }
 
             // Decrement the remaining seconds
