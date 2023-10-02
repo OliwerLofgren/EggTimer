@@ -29,7 +29,14 @@ function RenderBoilPage() {
 
   option.forEach((opt) => {
     opt.addEventListener("click", (event) => {
-      event.target.classList.toggle("chosen");
+      if (
+        event.target.classList == "optionDiv" ||
+        event.target.localName === "p"
+      ) {
+        console.log("fel");
+      } else {
+        event.target.classList.toggle("chosen");
+      }
 
       let parent = event.target.parentElement;
       let childs = parent.querySelectorAll("div");
@@ -94,9 +101,6 @@ function StartTimer(opt) {
   displayNextFact(op);
   document.querySelector("#funFact").textContent = "Fun fact";
   timer_function(divDom);
-
-  //   const funFact = wrapper.querySelector("#funFact");
-  //   displayNextFact(funFact, true);
 }
 let op = true;
 
@@ -105,7 +109,7 @@ let i = 0;
 function displayNextFact(opt) {
   const funFact = wrapper.querySelector("#funFact");
 
-  if (opt !== false) {
+  if (opt) {
     if (i < eggInfo.length) {
       // Apply a fade-out effect
       funFact.style.opacity = 0;
@@ -136,7 +140,8 @@ function timer_function(option) {
 
   // Define the timer durations for different options
   const timerDurations = {
-    Soft_Small: 6 * 60, // 6 minutes
+    // Soft_Small: 6 * 60, // 6 minutes
+    Soft_Small: 5, // 6 minutes
     Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
     Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
@@ -172,7 +177,7 @@ function timer_function(option) {
 
       timerDisplay.textContent = `${minutes}:${
         seconds < 10 ? "0" : ""
-      }${seconds}`;
+      }${seconds} `;
 
       // Check if the option does not include "Soft"
       const isSoftBoiled = option.includes("Soft");
@@ -217,10 +222,9 @@ function createBubble(done) {
   // Create the bubble div
   const bubble = document.createElement("div");
   bubble.className = "bubble";
-  bubble.style.left = `${Math.random() * 100}%`;
-  bubble.style.animationDuration = `${Math.random() * 7 + 2}s`; // Random duration between 2 to 7 seconds
+  bubble.style.left = `${Math.random() * 100}% `;
+  bubble.style.animationDuration = `${Math.random() * 7 + 2} s`; // Random duration between 2 to 7 seconds
   bubblesContainer.appendChild(bubble);
-
   // Remove the bubble element once it reaches the top
   bubble.addEventListener("animationiteration", () => {
     bubble.remove();
