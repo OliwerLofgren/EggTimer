@@ -5,12 +5,12 @@ let wrapper = document.querySelector("#wrapper");
 function renderStartPage(params) {
   basicLayout();
   wrapper.innerHTML += `
-    <button onclick="RenderBoilPage()">Lets boil some eggs!</button>
+    <button onclick="RenderBoilPage()">Start</button>
     <div id="info"> ? </div>
   `;
 
   wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-  wrapper.querySelector("#title").src = "/images/title.png";
+  wrapper.querySelector("#title").src = "/images/NewTitle.png";
   wrapper.querySelector("#info").addEventListener("click", () => {
     let info;
     info = "How to use Eggcellent Countdown";
@@ -18,7 +18,7 @@ function renderStartPage(params) {
   })
 
   wrapper.querySelector("#eggIcon").style.position = "relative";
-  wrapper.querySelector("#eggIcon").style.bottom = "70px";
+  wrapper.querySelector("#eggIcon").style.bottom = "80px";
   wrapper.style.justifyContent = "space-between";
 }
 

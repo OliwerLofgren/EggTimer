@@ -1,6 +1,25 @@
-function popUp(content) {
+function basicLayout() {
+  document.querySelector("#wrapper").innerHTML = `
+        <header>
+        <img id="title"> 
+        </header>
+        <div id="eggIcon">
+            <img id="eggPic"> 
+            <div id="yolk"></div>
+        </div>
+
+        <div id="popUp" class="hidden">
+            <div id="popUpBackground"></div>
+            <div id="popUpWindow">
+                <p id="prompt"></p>
+            </div>
+        </div>
+    `;
+}
+
+function popUp(content, fun) {
+  let wrapper = document.querySelector("#wrapper");
   if (content === "How to use Eggcellent Countdown") {
-    console.log("hej");
     document.querySelector("#popUpWindow").innerHTML = `
             <p id="prompt"></p>
         `;
@@ -23,7 +42,36 @@ function popUp(content) {
       document.querySelector("#popUp").classList.add("hidden");
     });
   } else {
-    document.querySelector("#popUpWindow").innerHTML = `
+    if (fun) {
+      wrapper.innerHTML = `
+                <header>
+                    <img id="title"> 
+                </header>
+                <div id="eggIcon">
+                    <img id="eggPic"> 
+                    <div id="yolk"></div>
+                </div>
+
+
+                <div id="timer">
+                    <p id="promp">Fun facts about eggs:</p>
+                    <p id="funFact"></p>
+                    <p id="feedback"></p>
+                    <button onclick="renderStartPage()"> Boil another </button>
+                </div>
+
+                <div id="popUp" class="hidden">
+                    <div id="popUpBackground"></div>
+                    <div id="popUpWindow">
+                        <p id="prompt"></p>
+                    </div>
+                </div>
+            `;
+
+      wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+      wrapper.querySelector("#title").src = "/images/NewTitle.png";
+    }
+    wrapper.querySelector("#popUpWindow").innerHTML = `
         <p id="prompt"></p>
         `;
 
@@ -37,24 +85,4 @@ function popUp(content) {
       document.querySelector("#popUp").classList.add("hidden");
     });
   }
-}
-
-function basicLayout() {
-  document.querySelector("#wrapper").innerHTML = `
-        <header>
-        <img id="title"> 
-        </header>
-        <div id="eggIcon">
-        <img id="eggPic"> 
-        <div id="yolk"></div>
-        </div>
-
-
-        <div id="popUp" class="hidden">
-            <div id="popUpBackground"></div>
-            <div id="popUpWindow">
-                <p id="prompt"></p>
-            </div>
-        </div>
-    `;
 }

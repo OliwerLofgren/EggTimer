@@ -11,6 +11,7 @@
 body {
   background-color: black;
   margin: 0;
+  color: #6b4d38;
 }
 
 #wrapper {
@@ -61,7 +62,7 @@ header {
 #info {
   height: 40px;
   width: 40px;
-  background-color: #b69244;
+  background-color: #6b4d38;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -89,6 +90,7 @@ button {
   font-size: 16px;
   font-family: Comfortaa;
   border: 1px solid #b69244;
+  color: #6b4d38;
 }
 
 #timer {
@@ -144,6 +146,7 @@ button {
   display: flex;
   align-content: center;
   margin: 0px;
+  color: #6b4d38;
 }
 
 #bubbles {
