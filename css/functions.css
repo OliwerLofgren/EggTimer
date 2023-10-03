@@ -6,13 +6,18 @@
     background-color: #FCE4B1;
     font-family: Comfortaa;
     grid-row: 2;
-    height: 50px;
+    height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
     /* margin: 10px; */
     border-radius: 20px;
     border: 1px solid #FCE4B1;
+    font-size: 4vw;
+}
+
+p {
+    font-size: 4vw;
 }
 
 .option:hover {
@@ -34,8 +39,9 @@
 
 #startTimer {
     margin: 20px;
-    height: 50px;
+    height: 13vw;
     padding: 10px;
+    font-size: 4vw;
 }
 
 .chosen {
@@ -76,7 +82,7 @@
 #popUpWindow {
     position: absolute;
     background-color: #fce4b1;
-    width: 300px;
+    width: 80vw;
     border-radius: 10px;
     box-shadow: 0 0 20px #41000d47;
 
@@ -90,23 +96,18 @@
 #popUpWindow button {
     border: 0px;
     border-radius: 5px;
-    /* background-color: var(--beige); */
 
     transition: 0.5s;
     width: 80px;
     height: auto;
     margin-bottom: 10px;
+    font-size: 4vw;
 }
 
 #popUpWindow #prompt {
     font-family: Comfortaa;
     padding: 10px;
 }
-
-/* #popUpWindow button:hover {
-    background-color: var(--brown);
-    color: #6b4d38;
-} */
 
 .hidden {
     display: none !important;

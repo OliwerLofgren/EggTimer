@@ -20,10 +20,11 @@ body {
     align-items: center;
     height: 100vh;
     border-radius: 20px;
-    width: 400px;
+    /* width: 400px; */
     background-color: #fff1df;
     overflow: scroll;
     /* justify-content: space-between; */
+    width: 100vw;
 }
 
 main {
@@ -37,14 +38,14 @@ header {
 }
 
 #title {
-    height: 120px;
-    width: 250px;
+    height: 16vh;
+    width: 60vw;
     padding: 20px;
 }
 
 #eggIcon {
-    width: 200px;
-    height: 270px;
+    /* width: 25vh; */
+    height: 35vh;
 }
 
 #yolk {
@@ -61,10 +62,10 @@ header {
 }
 
 #info {
-    height: 40px;
-    width: 40px;
+    height: 11vw;
+    width: 11vw;
     background-color: #6b4d38;
-    border-radius: 20px;
+    border-radius: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +73,7 @@ header {
     position: relative;
     bottom: 40px;
     font-family: Comfortaa;
+    font-size: 4vw;
 }
 
 img {
@@ -84,8 +86,8 @@ h1 {
 }
 
 button {
-    width: 170px;
-    height: 50px;
+    width: 45vw;
+    height: 8vh;
     border-radius: 30px;
     background-color: #fce4b1;
     font-size: 16px;
@@ -100,7 +102,7 @@ button {
 }
 
 #clock {
-    font-size: 60px;
+    font-size: 18vw;
     font-family: Montserrat;
     font-weight: bolder;
     color: #6b4d38;
@@ -202,5 +204,25 @@ button {
 
     50% {
         transform: translateX(5px);
+    }
+}
+
+
+@media (max-width: 400px) {
+    #eggIcon {
+        position: relative;
+        bottom: 25px;
+    }
+
+    img {
+        height: 240px;
+        width: 180px;
+    }
+
+    #yolk {
+        height: 110px;
+        width: 110px;
+        position: absolute;
+        top: 115px;
     }
 }
