@@ -20,10 +20,8 @@ body {
     align-items: center;
     height: 100vh;
     border-radius: 20px;
-    /* width: 400px; */
     background-color: #fff1df;
     overflow: scroll;
-    /* justify-content: space-between; */
     width: 100vw;
 }
 
@@ -38,13 +36,12 @@ header {
 }
 
 #title {
-    height: 16vh;
-    width: 60vw;
+    height: 150px;
+    width: 240px;
     padding: 20px;
 }
 
 #eggIcon {
-    /* width: 25vh; */
     height: 35vh;
 }
 
@@ -58,7 +55,6 @@ header {
     bottom: 150px;
     border: 2px solid #b69244;
     transition: background-color 15s ease;
-    /* Increase the duration to 2 seconds for a smoother transition */
 }
 
 #info {
@@ -224,5 +220,10 @@ button {
         width: 110px;
         position: absolute;
         top: 115px;
+    }
+
+    #title {
+        height: 120px;
+        width: 220px;
     }
 }
