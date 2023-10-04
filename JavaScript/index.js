@@ -132,7 +132,6 @@ function displayNextFact(opt) {
         } else {
             i = 0;
             displayNextFact(opt);
-            document.querySelector("#promp").textContent = "";
         }
     }
 }
@@ -145,8 +144,8 @@ function timer_function(option) {
 
     // Define the timer durations for different options
     const timerDurations = {
-        // Soft_Small: 6 * 60, // 6 minutes
-        Soft_Small: 5, // 6 minutes
+        Soft_Small: 6 * 60, // 6 minutes
+        // Soft_Small: 5, // 6 minutes
         Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
         Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
