@@ -98,13 +98,6 @@ button {
   margin-bottom: 50px;
 }
 
-#clock {
-  font-size: 18vw;
-  font-family: Montserrat;
-  font-weight: bolder;
-  color: #6b4d38;
-}
-
 #promp {
   font-family: Comfortaa;
 }
@@ -152,7 +145,13 @@ button {
   font-size: 4vw;
   line-height: 20px;
 }
-
+#clock {
+  font-size: 18vw;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: #6b4d38;
+  z-index: 5;
+}
 #bubbles {
   position: absolute;
   bottom: 0;
@@ -165,6 +164,7 @@ button {
   overflow: hidden;
   max-width: 400px;
   /* Set the maximum width to match the wrapper's width */
+  z-index: 1;
 }
 
 .bubble {

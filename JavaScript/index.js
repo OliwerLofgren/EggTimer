@@ -194,7 +194,7 @@ function timer_function(option) {
       const yolk = document.getElementById("yolk");
       if (!isSoftBoiled && percentageRemaining < 25) {
         // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-        yolk.style.backgroundColor = "rgb(255, 200, 97)";
+        yolk.style.backgroundColor = "#FFB969";
       } else {
         // Otherwise, keep it yellow
         yolk.style.backgroundColor = "rgb(255, 255, 129)";
