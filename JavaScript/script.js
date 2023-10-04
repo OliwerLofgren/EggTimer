@@ -2,7 +2,7 @@
 let main = document.querySelector("main");
 let wrapper = document.querySelector("#wrapper");
 
-function renderStartPage(params) {
+function renderStartPage() {
   basicLayout();
   wrapper.innerHTML += `
     <button onclick="RenderBoilPage()">Start</button>
@@ -15,7 +15,7 @@ function renderStartPage(params) {
     let info;
     info = "How to use Eggcellent Countdown";
     popUp(info);
-  })
+  });
 
   wrapper.querySelector("#eggIcon").style.position = "relative";
   wrapper.querySelector("#eggIcon").style.bottom = "80px";

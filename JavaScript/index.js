@@ -68,7 +68,6 @@ function RenderBoilPage() {
             if (chosen.length !== 2) {
                 popUp("You have to choose two options!");
             } else {
-
                 StartTimer(chosenOpt);
             }
         } else {
@@ -123,7 +122,6 @@ function displayNextFact(opt) {
                 funFact.style.opacity = 1;
                 funFact.style.transitionProperty = "opacity";
                 funFact.style.transitionDuration = "2s";
-
                 i++;
                 setTimeout(displayNextFact, 3000, opt);
             }, 1000);
@@ -133,6 +131,7 @@ function displayNextFact(opt) {
         }
     }
 }
+
 
 function timer_function(option) {
     const timerDisplay = document.getElementById("clock");
@@ -150,8 +149,8 @@ function timer_function(option) {
         Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
         Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-        Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-        // Hard_Small: 10,
+        // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+        Hard_Small: 50,
         Hard_Medium: 10 * 60, // 10 minutes
         Hard_Large: 11 * 60, // 11 minutes
     };
@@ -161,6 +160,7 @@ function timer_function(option) {
     const duration = timerDurations[option];
 
     secondsRemaining = duration;
+
 
     // Function to update the timer display
     function updateTimer() {
@@ -195,10 +195,10 @@ function timer_function(option) {
             const yolk = document.getElementById("yolk");
             if (!isSoftBoiled && percentageRemaining < 25) {
                 // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-                yolk.style.backgroundColor = "orange";
+                yolk.style.backgroundColor = "rgb(255, 200, 97)";
             } else {
                 // Otherwise, keep it yellow
-                yolk.style.backgroundColor = "yellow";
+                yolk.style.backgroundColor = "rgb(255, 255, 129)";
             }
 
             // Decrement the remaining seconds
