@@ -122,13 +122,12 @@ function displayNextFact(opt) {
         funFact.style.opacity = 1;
         funFact.style.transitionProperty = "opacity";
         funFact.style.transitionDuration = "2s";
-
         i++;
-        setTimeout(displayNextFact, 3000);
+        setTimeout(displayNextFact, 3000, opt);
       }, 1000);
     } else {
       i = 0;
-      displayNextFact();
+      displayNextFact(opt);
     }
   }
 }
@@ -166,7 +165,8 @@ function timer_function(option) {
     if (secondsRemaining <= 0) {
       popUp("The time is up!", "fun");
       wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-      displayNextFact(false);
+      let opt = false;
+      displayNextFact(opt);
       wrapper.querySelector("#promp").textContent = "";
 
       animateBubbles(false);
@@ -186,7 +186,6 @@ function timer_function(option) {
 
       // Check if the option does not include "Soft"
       const isSoftBoiled = option.includes("Soft");
-
       // Calculate the percentage of time remaining
       const percentageRemaining = (secondsRemaining / duration) * 100;
 
