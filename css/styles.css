@@ -1,229 +1,228 @@
 @font-face {
-    font-family: "Comfortaa";
-    src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+  font-family: "Comfortaa";
+  src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
 }
 
 @font-face {
-    font-family: "Montserrat";
-    src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
 body {
-    background-color: black;
-    margin: 0;
-    color: #6b4d38;
+  background-color: black;
+  margin: 0;
+  color: #6b4d38;
 }
 
 #wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    border-radius: 20px;
-    background-color: #fff1df;
-    overflow: scroll;
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  border-radius: 20px;
+  background-color: #fff1df;
+  overflow: scroll;
+  width: 100vw;
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
-    height: 150px;
+  height: 150px;
 }
 
 #title {
-    height: 150px;
-    width: 240px;
-    padding: 20px;
+  height: 150px;
+  width: 250px;
+  padding: 20px;
 }
 
 #eggIcon {
-    height: 35vh;
+  height: 35vh;
 }
 
 #yolk {
-    height: 130px;
-    width: 130px;
-    background-color: yellow;
-    border-radius: 70px;
-    position: relative;
-    left: 35px;
-    bottom: 150px;
-    border: 2px solid #b69244;
-    transition: background-color 15s ease;
+  height: 130px;
+  width: 130px;
+  background-color: rgb(255, 255, 129);
+
+  border-radius: 70px;
+  position: relative;
+  left: 35px;
+  bottom: 150px;
+  border: 2px solid #b69244;
+  transition: background-color 15s ease;
 }
 
 #info {
-    height: 11vw;
-    width: 11vw;
-    background-color: #6b4d38;
-    border-radius: 20vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fce4b1;
-    position: relative;
-    bottom: 40px;
-    font-family: Comfortaa;
-    font-size: 4vw;
+  height: 11vw;
+  width: 11vw;
+  background-color: #6b4d38;
+  border-radius: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fce4b1;
+  position: relative;
+  bottom: 40px;
+  font-family: Comfortaa;
+  font-size: 4vw;
 }
 
 img {
-    height: 250px;
-    width: 200px;
+  height: 250px;
+  width: 200px;
 }
 
 h1 {
-    font-family: Comfortaa;
+  font-family: Comfortaa;
 }
 
 button {
-    width: 45vw;
-    height: 8vh;
-    border-radius: 30px;
-    background-color: #fce4b1;
-    font-size: 16px;
-    font-family: Comfortaa;
-    border: 1px solid #b69244;
-    color: #6b4d38;
+  width: 45vw;
+  height: 8vh;
+  border-radius: 30px;
+  background-color: #fce4b1;
+  font-size: 16px;
+  font-family: Comfortaa;
+  border: 1px solid #b69244;
+  color: #6b4d38;
 }
 
 #timer {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 #clock {
-    font-size: 18vw;
-    font-family: Montserrat;
-    font-weight: bolder;
-    color: #6b4d38;
+  font-size: 18vw;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: #6b4d38;
 }
 
 #promp {
-    font-family: Comfortaa;
+  font-family: Comfortaa;
 }
 
 @keyframes wiggle {
-    0% {
-        transform: translateX(0) rotate(0deg);
-    }
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
 
-    25% {
-        transform: translateX(-5px) rotate(-5deg);
-    }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
 
-    50% {
-        transform: translateX(5px) rotate(5deg);
-    }
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
 
-    75% {
-        transform: translateX(-5px) rotate(-5deg);
-    }
+  75% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
 
-    100% {
-        transform: translateX(5px) rotate(5deg);
-    }
+  100% {
+    transform: translateX(5px) rotate(5deg);
+  }
 }
 
 .wiggle {
-    animation: wiggle 2s ease infinite alternate;
+  animation: wiggle 2s ease infinite alternate;
 }
 
 #stopButton {
-    margin: 30px;
+  margin: 30px;
 }
 
 #funFact {
-    font-family: Comfortaa;
-    padding: 0px 10px 0px 10px;
-    height: 100px;
-    display: flex;
-    align-content: center;
-    margin: 0px;
-    color: #6b4d38;
+  font-family: Comfortaa;
+  padding: 0px 10px 0px 10px;
+  height: 100px;
+  display: flex;
+  align-content: center;
+  margin: 0px;
+  color: #6b4d38;
 }
 
 #bubbles {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    /* Set the width to 100% to match the parent container's width */
-    height: 100%;
-    /* Adjust the height as needed */
-    overflow: hidden;
-    max-width: 400px;
-    /* Set the maximum width to match the wrapper's width */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  /* Set the width to 100% to match the parent container's width */
+  height: 100%;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  max-width: 400px;
+  /* Set the maximum width to match the wrapper's width */
 }
 
 .bubble {
-    position: absolute;
-    bottom: 0;
-    width: 15px;
-    height: 15px;
-    background-color: rgba(173, 216, 230, 0.5);
-    /* Light blue with opacity */
-    border-radius: 50%;
-    /* Make it round */
-    position: absolute;
-    animation: riseUp ease-in-out infinite;
-    transform-origin: center bottom;
-    opacity: 0;
-    /* Initially hidden */
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(173, 216, 230, 0.5);
+
+  border-radius: 50%;
+  /* Make it round */
+  position: absolute;
+  animation: riseUp ease-in-out infinite;
+  transform-origin: center bottom;
+  opacity: 0;
+  /* Initially hidden */
 }
 
 @keyframes riseUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
-    100% {
-        transform: translateY(-100vh);
-        /* Adjust to match the height of your page */
-        opacity: 0;
-    }
+  100% {
+    transform: translateY(-100vh);
+    /* Adjust to match the height of your page */
+    opacity: 0;
+  }
 }
 
 @keyframes float {
+  0%,
+  100% {
+    transform: translateX(-5px);
+  }
 
-    0%,
-    100% {
-        transform: translateX(-5px);
-    }
-
-    50% {
-        transform: translateX(5px);
-    }
+  50% {
+    transform: translateX(5px);
+  }
 }
 
-
 @media (max-width: 400px) {
-    #eggIcon {
-        position: relative;
-        bottom: 25px;
-    }
+  #eggIcon {
+    position: relative;
+    bottom: 5px;
+  }
 
-    img {
-        height: 240px;
-        width: 180px;
-    }
+  img {
+    height: 240px;
+    width: 180px;
+  }
 
-    #yolk {
-        height: 110px;
-        width: 110px;
-        position: absolute;
-        top: 115px;
-    }
+  #yolk {
+    height: 110px;
+    width: 110px;
+    position: absolute;
+    top: 115px;
+  }
 
-    #title {
-        height: 120px;
-        width: 220px;
-    }
+  #title {
+    height: 120px;
+    width: 220px;
+  }
 }

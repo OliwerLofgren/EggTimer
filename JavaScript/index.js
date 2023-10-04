@@ -148,8 +148,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    // Hard_Small: 10,
+    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Small: 50,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -193,10 +193,10 @@ function timer_function(option) {
       const yolk = document.getElementById("yolk");
       if (!isSoftBoiled && percentageRemaining < 25) {
         // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-        yolk.style.backgroundColor = "orange";
+        yolk.style.backgroundColor = "rgb(255, 200, 97)";
       } else {
         // Otherwise, keep it yellow
-        yolk.style.backgroundColor = "yellow";
+        yolk.style.backgroundColor = "rgb(255, 255, 129)";
       }
 
       // Decrement the remaining seconds
