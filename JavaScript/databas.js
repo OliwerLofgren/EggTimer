@@ -19,8 +19,6 @@ let eggInfo =
         "Kiwis lay the largest eggs in relation to their body size of any species of bird.",
         "The word “yolk” derives from an Old English word for “yellow”. Therefore, it is egg white and egg yellow.",
         "Harriet, a hen from the United Kingdom, laid the world’s largest egg in 2010. Her astonishing egg measured 9.1 inches in diameter.",
-        "When it comes to the number of eggs laid each year, Iowa leads the nation with more than 14.8 billion eggs produced annually. Ohio is the next state in line, producing 7.9 billion eggs each year.",
-        "There are several reasons why commonly we eat chicken eggs instead of duck or turkey eggs.Chickens lay more eggs, they need less nesting space, and they don’t have the strong mothering instincts of turkeys and ducks, which makes egg collection easier.",
         "In the studie that the creator of this app did, the most common time for boiling the perfect is 5-6 minutes.",
         "In the studie that the creator of this app did, 61 procent of the people who answered said that they often boils egg."
     ];
