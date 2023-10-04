@@ -109,14 +109,18 @@ let i = 0;
 function displayNextFact(opt) {
     const funFact = wrapper.querySelector("#funFact");
 
+
     if (opt === true && timerActive) {
         if (i < eggInfo.length) {
             // Apply a fade-out effect
             funFact.style.opacity = 0;
 
+
             // Wait for the fade-out transition to complete
             setTimeout(() => {
                 funFact.textContent = eggInfo[i];
+
+
 
                 // Apply a fade-in effect
                 funFact.style.opacity = 1;
@@ -128,18 +132,16 @@ function displayNextFact(opt) {
         } else {
             i = 0;
             displayNextFact(opt);
+            document.querySelector("#promp").textContent = "";
         }
-    } else {
-        clearInterval(displayNextFact);
-        wrapper.querySelector("#promp").textContent = "";
     }
 }
-
 
 function timer_function(option) {
     const timerDisplay = document.getElementById("clock");
     let countdown; // Variable to store the timer ID
     let secondsRemaining; // Variable to store the remaining seconds
+
 
     // Define the timer durations for different options
     const timerDurations = {
@@ -164,12 +166,16 @@ function timer_function(option) {
 
     secondsRemaining = duration;
 
+    // Function to update the timer display
+
+
 
     // Function to update the timer display
     function updateTimer() {
         if (secondsRemaining <= 0) {
             popUp("The time is up!", "fun");
             wrapper.querySelector("#eggIcon").classList.remove("wiggle");
+            document.querySelector("#promp").textContent = "";
             timerActive = false;
             let opt = false; // Set opt to false to stop displaying fun facts
             displayNextFact(opt);
@@ -185,12 +191,12 @@ function timer_function(option) {
             const minutes = Math.floor(secondsRemaining / 60);
             const seconds = secondsRemaining % 60;
 
+
             timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""
                 }${seconds} `;
 
             // Check if the option does not include "Soft"
             const isSoftBoiled = option.includes("Soft");
-
             // Calculate the percentage of time remaining
             const percentageRemaining = (secondsRemaining / duration) * 100;
 
@@ -198,7 +204,7 @@ function timer_function(option) {
             const yolk = document.getElementById("yolk");
             if (!isSoftBoiled && percentageRemaining < 25) {
                 // When there's less than 10% of time remaining and not "Soft," make yolk more orange
-                yolk.style.backgroundColor = "rgb(255, 200, 97)";
+                yolk.style.backgroundColor = "#FFB969";
             } else {
                 // Otherwise, keep it yellow
                 yolk.style.backgroundColor = "rgb(255, 255, 129)";
