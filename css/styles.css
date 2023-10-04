@@ -146,8 +146,11 @@ button {
   display: flex;
   align-content: center;
   margin: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
   color: #6b4d38;
   font-size: 4vw;
+  line-height: 20px;
 }
 
 #bubbles {
