@@ -103,13 +103,13 @@ function StartTimer(opt) {
     timer_function(divDom);
 }
 let op = true;
-
+let timerActive = true;
 let i = 0;
 
 function displayNextFact(opt) {
     const funFact = wrapper.querySelector("#funFact");
 
-    if (opt) {
+    if (opt === true && timerActive) {
         if (i < eggInfo.length) {
             // Apply a fade-out effect
             funFact.style.opacity = 0;
@@ -129,6 +129,9 @@ function displayNextFact(opt) {
             i = 0;
             displayNextFact(opt);
         }
+    } else {
+        clearInterval(displayNextFact);
+        wrapper.querySelector("#promp").textContent = "";
     }
 }
 
@@ -140,8 +143,8 @@ function timer_function(option) {
 
     // Define the timer durations for different options
     const timerDurations = {
-        Soft_Small: 6 * 60, // 6 minutes
-        // Soft_Small: 5, // 6 minutes
+        // Soft_Small: 6 * 60, // 6 minutes
+        Soft_Small: 5, // 6 minutes
         Soft_Medium: 6 * 60 + 43, // 6 minutes 43 seconds
         Soft_Large: 7 * 60 + 28, // 7 minutes 28 seconds
 
@@ -167,9 +170,9 @@ function timer_function(option) {
         if (secondsRemaining <= 0) {
             popUp("The time is up!", "fun");
             wrapper.querySelector("#eggIcon").classList.remove("wiggle");
-            let opt = false
+            timerActive = false;
+            let opt = false; // Set opt to false to stop displaying fun facts
             displayNextFact(opt);
-            wrapper.querySelector("#promp").textContent = "";
 
             animateBubbles(false);
             // Remove the "bubbles" container from the DOM
