@@ -63,14 +63,15 @@ function RenderBoilPage() {
   });
 
   wrapper.querySelector("#startTimer").addEventListener("click", () => {
-    if (chosenOpt.liking && chosenOpt.size && chosenOpt.temp !== "") {
+    if (chosenOpt.liking !== "" && chosenOpt.size !== "") {
       let chosen = document.querySelectorAll(".chosen");
-      if (chosen.length !== 3) {
-        popUp("You can only chose one of each option!");
+      if (chosen.length !== 2) {
+        popUp("You have to choose two options!");
+      } else {
+        StartTimer(chosenOpt);
       }
-      StartTimer(chosenOpt);
     } else {
-      popUp("You can only chose one of each option!");
+      popUp("You have to choose two options!");
     }
   });
 }
