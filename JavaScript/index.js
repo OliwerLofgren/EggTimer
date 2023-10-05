@@ -75,10 +75,16 @@ function RenderBoilPage() {
     }
   });
 }
-
+function go_back() {
+  RenderBoilPage();
+  timerActive = false;
+}
+let op = true;
+let timerActive = false;
+let i = 0;
 function StartTimer(opt) {
   basicLayout();
-
+  timerActive = true;
   let divDom;
   divDom = `${opt.liking}_${opt.size}`;
 
@@ -88,6 +94,7 @@ function StartTimer(opt) {
             <p id="funFact"></p>
             <p id="feedback"></p>
             <div id="clock"> 00:00 </div>
+            <button id="go_back">Go Back</button>
         </div>
     `;
   wrapper.querySelector("#eggIcon").classList.add("wiggle");
@@ -95,16 +102,13 @@ function StartTimer(opt) {
   wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
   wrapper.querySelector("#title").src = "/images/NewTitle.png";
 
-  wrapper.querySelector("#eggIcon").style.position = "relative";
-  wrapper.querySelector("#eggIcon").style.bottom = "35px";
-
   displayNextFact(op);
   document.querySelector("#funFact").textContent = "Fun fact";
   timer_function(divDom);
+
+  const go_back_button = document.getElementById("go_back");
+  go_back_button.addEventListener("click", go_back);
 }
-let op = true;
-let timerActive = true;
-let i = 0;
 
 function displayNextFact(opt) {
   const funFact = wrapper.querySelector("#funFact");
@@ -148,8 +152,8 @@ function timer_function(option) {
     Half_Medium: 7 * 60 + 43, // 7 minutes 43 seconds
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
-    Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    // Hard_Small: 50,
+    // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
+    Hard_Small: 10,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -159,8 +163,6 @@ function timer_function(option) {
   const duration = timerDurations[option];
 
   secondsRemaining = duration;
-
-  // Function to update the timer display
 
   // Function to update the timer display
   function updateTimer() {
@@ -246,7 +248,8 @@ function createBubble(done) {
 }
 
 function animateBubbles(done) {
-  if (!done) {
+  if (!done || !timerActive) {
+    // Check if timer is active before starting the animation
     clearInterval(bubbles);
     createBubbles = false; // Set the flag to false when the timer is done
   } else {

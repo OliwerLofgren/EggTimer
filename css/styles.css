@@ -96,6 +96,9 @@ button {
 #timer {
   text-align: center;
   margin-bottom: 50px;
+
+  position: relative;
+  z-index: 3;
 }
 
 #promp {
@@ -144,6 +147,9 @@ button {
   color: #6b4d38;
   font-size: 4vw;
   line-height: 20px;
+
+  position: relative;
+  z-index: 3;
 }
 #clock {
   font-size: 18vw;
@@ -229,4 +235,13 @@ button {
     height: 120px;
     width: 220px;
   }
+}
+
+#go_back {
+  position: relative;
+  z-index: 3;
+
+  height: 10vw;
+  padding: 10px;
+  font-size: 4vw;
 }
