@@ -75,10 +75,7 @@ function RenderBoilPage() {
     }
   });
 }
-function go_back() {
-  RenderBoilPage();
-  timerActive = false;
-}
+
 let op = true;
 let timerActive = false;
 let i = 0;
@@ -153,7 +150,7 @@ function timer_function(option) {
     Half_Large: 8 * 60 + 35, // 8 minutes 35 seconds
 
     // Hard_Small: 8 * 60 + 45, // 8 minutes 45 seconds
-    Hard_Small: 10,
+    Hard_Small: 50,
     Hard_Medium: 10 * 60, // 10 minutes
     Hard_Large: 11 * 60, // 11 minutes
   };
@@ -256,4 +253,14 @@ function animateBubbles(done) {
     bubbles = setInterval(() => createBubble(false), 1000);
     createBubbles = true; // Set the flag to true when starting the animation
   }
+}
+
+function go_back() {
+  RenderBoilPage();
+  timerActive = false;
+  const bubblesContainer = document.getElementById("bubbles");
+  if (bubblesContainer) {
+    bubblesContainer.remove();
+  }
+  console.log(bubblesContainer);
 }

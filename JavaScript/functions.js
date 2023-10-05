@@ -1,5 +1,5 @@
 function basicLayout() {
-    document.querySelector("#wrapper").innerHTML = `
+  document.querySelector("#wrapper").innerHTML = `
         <header>
         <img id="title"> 
         </header>
@@ -18,33 +18,33 @@ function basicLayout() {
 }
 
 function popUp(content, fun) {
-    let wrapper = document.querySelector("#wrapper");
-    if (content === "How to use Eggcellent Countdown") {
-        document.querySelector("#popUpWindow").innerHTML = `
+  let wrapper = document.querySelector("#wrapper");
+  if (content === "How to use Eggcellent Countdown") {
+    document.querySelector("#popUpWindow").innerHTML = `
             <p id="prompt"></p>
         `;
 
-        document.querySelector("#popUp").classList.remove("hidden");
-        document.querySelector(
-            "#prompt"
-        ).innerHTML = `How to use Eggcellent Countdown
+    document.querySelector("#popUp").classList.remove("hidden");
+    document.querySelector(
+      "#prompt"
+    ).innerHTML = `How to use Eggcellent Countdown
             <p> <b>Step 1:</b> Find a medium sized pot and fill up with water </p>
             <p> <b>Step 2:</b> Put the pot with water on the stove and bring up to a boil.</p>
             <p> <b>Step 3:</b> Make your selection of your choises on the app.</p>
             <p> <b>Step 4:</b> Put the egg/eggs in the pot and start the timer.</p>
             `;
 
-        let button = document.createElement("button");
-        button.textContent = "OK";
-        button.classList.add("OK");
-        document.querySelector("#popUpWindow").append(button);
-        document.querySelector(".OK").addEventListener("click", (e) => {
-            document.querySelector("#popUp").classList.add("hidden");
-        });
-    } else {
-        if (fun) {
-            let wrapper = document.querySelector("#wrapper");
-            wrapper.innerHTML = `
+    let button = document.createElement("button");
+    button.textContent = "OK";
+    button.classList.add("OK");
+    document.querySelector("#popUpWindow").append(button);
+    document.querySelector(".OK").addEventListener("click", (e) => {
+      document.querySelector("#popUp").classList.add("hidden");
+    });
+  } else {
+    if (fun) {
+      let wrapper = document.querySelector("#wrapper");
+      wrapper.innerHTML = `
                 <header>
                     <img id="title"> 
                 </header>
@@ -56,8 +56,7 @@ function popUp(content, fun) {
 
                 <div id="timer">
                     <p id="promp">Fun facts about eggs:</p>
-                    <p id="funFact"></p>
-                    <p id="feedback"></p>
+                   
                     <button id="returnToHomePage"onclick="renderStartPage()"> Boil another </button>
                 </div>
 
@@ -69,25 +68,25 @@ function popUp(content, fun) {
                 </div>
             `;
 
-            wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
-            wrapper.querySelector("#title").src = "/images/NewTitle.png";
-            wrapper.querySelector("#returnToHomePage").style.position = "relative";
-            wrapper.querySelector("#returnToHomePage").style.bottom = "84px";
-        }
-        wrapper.querySelector("#popUpWindow").innerHTML = `
+      wrapper.querySelector("#eggPic").src = "/images/eggOutline.png";
+      wrapper.querySelector("#title").src = "/images/NewTitle.png";
+      wrapper.querySelector("#returnToHomePage").style.position = "relative";
+      wrapper.querySelector("#returnToHomePage").style.bottom = "84px";
+    }
+    wrapper.querySelector("#popUpWindow").innerHTML = `
         <p id="prompt"></p>
         `;
 
-        document.querySelector("#popUp").classList.remove("hidden");
-        document.querySelector("#prompt").textContent = content;
-        let button = document.createElement("button");
-        button.textContent = "OK";
-        button.classList.add("OK");
-        document.querySelector("#popUpWindow").append(button);
-        document.querySelector(".OK").addEventListener("click", (e) => {
-            document.querySelector("#popUp").classList.add("hidden");
-        });
-        wrapper.querySelector("#eggIcon").style.position = "relative";
-        wrapper.querySelector("#eggIcon").style.bottom = "55px";
-    }
+    document.querySelector("#popUp").classList.remove("hidden");
+    document.querySelector("#prompt").textContent = content;
+    let button = document.createElement("button");
+    button.textContent = "OK";
+    button.classList.add("OK");
+    document.querySelector("#popUpWindow").append(button);
+    document.querySelector(".OK").addEventListener("click", (e) => {
+      document.querySelector("#popUp").classList.add("hidden");
+    });
+    wrapper.querySelector("#eggIcon").style.position = "relative";
+    wrapper.querySelector("#eggIcon").style.bottom = "55px";
+  }
 }
